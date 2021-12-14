@@ -17,10 +17,7 @@ const mydb = mongoose.connect(
     {useUnifiedTopology: true, useNewUrlParser: true}
 )
 
-// app.get('/', (req, res) => {
-//     res.send('Mongoose Use is Successful')
-// })
-
+//Prevent cors issue when calling API from frontend
 app.use(
     cors({
         origin: 'http://localhost:4200'
@@ -29,6 +26,7 @@ app.use(
 
 app.listen(8080)
 
+//register API
 app.post('/v1/users/register', (req, res) => {
     const fName = req.body.firstName
     const lName = req.body.lastName
@@ -57,4 +55,20 @@ app.post('/v1/users/register', (req, res) => {
                 res.send({"status":"success", "message": "user created successfully."})
                 // res.json(result)
         })
+})
+
+//login API
+//TODO: change to post once learned JWT
+app.get('/v1/users/login', (req, res) => {
+    const password = req.query.password
+    const email = req.query.email
+    users.find( {"email": email, "password": password}, (err, result) => {
+        if(err) 
+            res.send(err)
+        else
+            if(result.length > 0)
+                res.send({"status":"success", "message": "user logged in successfully."})
+            else
+                res.send({"status":"failure", "message": "user does not exists"})
+    })
 })
