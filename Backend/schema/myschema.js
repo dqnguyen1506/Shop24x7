@@ -7,7 +7,9 @@ const tableModel = new mySchema({
     email: {type: String},
     password: {type: String},
     profileImage: {type: String},
-    address: {type: Object}
+    address: {type: Object},
+    interests: {type: String},
+    phoneNumber: {type: String}
 }, {versionKey: false})
 
 module.exports = mongoose.model('users', tableModel, 'users')

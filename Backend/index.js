@@ -32,7 +32,7 @@ app.post('/v1/users/register', (req, res) => {
     const lName = req.body.lastName
     const password = req.body.password
     const email = req.body.email
-    const profileImage = "https://villagesonmacarthur.com/wp-content/uploads/2020/12/Blank-Avatar.png"
+    // const profileImage = "https://villagesonmacarthur.com/wp-content/uploads/2020/12/Blank-Avatar.png"
 
     users.insertMany(
         {
@@ -40,7 +40,9 @@ app.post('/v1/users/register', (req, res) => {
             "lastName": lName, 
             "password": password, 
             "email": email,
-            "profileImage": profileImage, 
+            "profileImage": "", 
+            "interests": "",
+            "phoneNumber": "",
             "address": 
             {
                 "streetAddress": "", 
@@ -58,7 +60,6 @@ app.post('/v1/users/register', (req, res) => {
 })
 
 //login API
-//TODO: change to post once learned JWT
 app.post('/v1/users/login', (req, res) => {
     const password = req.body.password
     const email = req.body.email
@@ -71,4 +72,62 @@ app.post('/v1/users/login', (req, res) => {
             else
                 res.send({"status":"failure", "message": "user does not exists"})
     })
+})
+
+//getting profile API
+app.post('/v1/profile', (req, res) => {
+    const email = req.body.email
+    users.find( {"email": email}, (err, result) => {
+        if(err) 
+            res.send(err)
+        else
+            res.send({"status":"success", "profile": result})
+    })
+})
+
+//delete profile image API (setting profileImage to "")
+app.delete('/v1/profile/image', (req, res) => {
+    const email = req.body.email
+    users.findOneAndUpdate(
+        {"email": email},
+        {$set: {"profileImage": ""}},
+        {upsert: true}, 
+        (err, result) => {
+            if(err) 
+                res.send(err)
+            else
+                res.send({"status":"success", "message": "profile image deleted successfully"})
+        })
+})
+
+//update profile image API
+app.patch('/v1/profile/image', (req, res) => {
+    const email = req.body.email
+    const profileImage = req.body.profileImage
+    users.findOneAndUpdate(
+        {"email": email},
+        {$set: {"profileImage": profileImage}},
+        {upsert: true}, 
+        (err, result) => {
+            if(err) 
+                res.send(err)
+            else
+                res.send({"status":"success", "message": "profile image updated successfully"})
+        })
+})
+
+//update address API
+app.patch('/v1/profile/address', (req, res) => {
+    const email = req.body.email
+    const address = req.body.address
+    users.findOneAndUpdate(
+        {"email": email},
+        {$set: {"address": address}},
+        {upsert: true}, 
+        (err, result) => {
+            if(err) 
+                res.send(err)
+            else
+                res.send({"status":"success", "message": "profile modified successfully"})
+        })
 })
