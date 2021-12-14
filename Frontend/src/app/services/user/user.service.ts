@@ -38,7 +38,7 @@ export class UserService {
       "email": userLoginForm.get('email')!.value,
   })
 
-    //this is for get()
+    //this is for http.get()
     // let param: any = {'email': userLoginForm.get('email')!.value, "password": userLoginForm.get('password')!.value};
   }
 }

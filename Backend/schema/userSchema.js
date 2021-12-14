@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const mySchema = mongoose.Schema
 
-const tableModel = new mySchema({
+const userModel = new mySchema({
     firstName: {type: String},
     lastName: {type: String},
     email: {type: String},
@@ -12,4 +12,4 @@ const tableModel = new mySchema({
     phoneNumber: {type: String}
 }, {versionKey: false})
 
-module.exports = mongoose.model('users', tableModel, 'users')
+module.exports = mongoose.model('users', userModel, 'users')

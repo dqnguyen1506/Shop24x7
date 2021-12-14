@@ -7,8 +7,6 @@ app.use(bodyParser.json())
 
 // const myname = require('./schema/myschema')
 
-const users = require('./schema/myschema')
-
 const mongoose = require('mongoose')
 const cors = require('cors')
 
@@ -25,6 +23,8 @@ app.use(
 )
 
 app.listen(8080)
+
+const users = require('./schema/userSchema')
 
 //register API
 app.post('/v1/users/register', (req, res) => {
