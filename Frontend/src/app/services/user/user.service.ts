@@ -33,12 +33,12 @@ export class UserService {
   //Temporary method until learned JWT
   authenticateUser(userLoginForm: FormGroup): Observable<any>{
     const url = this.api + "/v1/users/login"
-    let params = new HttpParams();
-    params.append('email', userLoginForm.get('email')!.value);
-    params.append("password", userLoginForm.get('password')!.value)
+    return this.http.post(url, {
+      "password": userLoginForm.get('password')!.value, 
+      "email": userLoginForm.get('email')!.value,
+  })
 
-
-    let param: any = {'email': userLoginForm.get('email')!.value, "password": userLoginForm.get('password')!.value};
-    return this.http.get(url, {params: param})
+    //this is for get()
+    // let param: any = {'email': userLoginForm.get('email')!.value, "password": userLoginForm.get('password')!.value};
   }
 }

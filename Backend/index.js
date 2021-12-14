@@ -59,9 +59,9 @@ app.post('/v1/users/register', (req, res) => {
 
 //login API
 //TODO: change to post once learned JWT
-app.get('/v1/users/login', (req, res) => {
-    const password = req.query.password
-    const email = req.query.email
+app.post('/v1/users/login', (req, res) => {
+    const password = req.body.password
+    const email = req.body.email
     users.find( {"email": email, "password": password}, (err, result) => {
         if(err) 
             res.send(err)
