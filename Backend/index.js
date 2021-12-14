@@ -10,6 +10,7 @@ app.use(bodyParser.json())
 const users = require('./schema/myschema')
 
 const mongoose = require('mongoose')
+const cors = require('cors')
 
 const mydb = mongoose.connect(
     'mongodb://localhost:27017/tcs15', 
@@ -19,6 +20,12 @@ const mydb = mongoose.connect(
 // app.get('/', (req, res) => {
 //     res.send('Mongoose Use is Successful')
 // })
+
+app.use(
+    cors({
+        origin: 'http://localhost:4200'
+    })
+)
 
 app.listen(8080)
 

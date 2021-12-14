@@ -21,6 +21,11 @@ export class UserService {
   registerUser(userRegistrationForm: FormGroup): Observable<any>{
       const url = this.api + "/v1/users/register"
       console.log(userRegistrationForm.get('lName')!.value)
-      return this.http.post(url, {"firstName": userRegistrationForm.get('fName')!.value})
+      return this.http.post(url, {
+        "firstName": userRegistrationForm.get('fName')!.value,
+        "lastName": userRegistrationForm.get('lName')!.value, 
+        "password": userRegistrationForm.get('password')!.value, 
+        "email": userRegistrationForm.get('email')!.value,
+    })
   }
 }

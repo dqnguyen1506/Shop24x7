@@ -13,7 +13,6 @@
                     type="text" 
                     class="form-control" 
                     id="firstNameForm"
-                    name="firstName"
                     formControlName="fName"
                     [ngClass]="{ 'is-invalid': submitted && f?.['fName']?.errors }" 
                 >
@@ -32,7 +31,6 @@
                     type="text" 
                     class="form-control" 
                     id="lastNameForm"
-                    name="lastName"
                     formControlName="lName"
                     [ngClass]="{ 'is-invalid': submitted && f?.['lName']?.errors }" 
                 >
@@ -51,7 +49,6 @@
                 data-testid="register-email"
                 type="email" 
                 class="form-control"
-                name="email"
                 formControlName="email"
                 [ngClass]="{ 'is-invalid': submitted && f?.['email']?.errors }" 
             >
@@ -72,7 +69,6 @@
                 data-testid="register-password"
                 type="password" 
                 class="form-control"
-                name="password" 
                 formControlName="password"  
                 [ngClass]="{ 'is-invalid': submitted && f?.['password']?.errors }"
             >
