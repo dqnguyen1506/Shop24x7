@@ -1,0 +1,13 @@
+.main{
+    height: 100vh;
+    width: 100vw
+}
+
+#welcomeMessage{
+    flex: 0 0 30%;
+    padding-top: 5%;
+}
+
+#loginForm{
+    flex: 0 0 30%
+}
