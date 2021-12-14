@@ -20,7 +20,7 @@ export class UserService {
 //   }
 
   registerUser(userRegistrationForm: FormGroup): Observable<any>{
-      const url = this.api + "/v1/users/register"
+      const url = this.api + "/api/v1/users/register"
       // console.log(userRegistrationForm.get('lName')!.value)
       return this.http.post(url, {
         "firstName": userRegistrationForm.get('fName')!.value,
@@ -32,7 +32,7 @@ export class UserService {
 
   //Temporary method until learned JWT
   authenticateUser(userLoginForm: FormGroup): Observable<any>{
-    const url = this.api + "/v1/users/login"
+    const url = this.api + "/api/v1/users/login"
     return this.http.post(url, {
       "password": userLoginForm.get('password')!.value, 
       "email": userLoginForm.get('email')!.value,

@@ -26,8 +26,10 @@ app.listen(8080)
 
 const users = require('./schema/userSchema')
 
+// USERS API
+
 //register API
-app.post('/v1/users/register', (req, res) => {
+app.post('/api/v1/users/register', (req, res) => {
     const fName = req.body.firstName
     const lName = req.body.lastName
     const password = req.body.password
@@ -60,7 +62,7 @@ app.post('/v1/users/register', (req, res) => {
 })
 
 //login API
-app.post('/v1/users/login', (req, res) => {
+app.post('/api/v1/users/login', (req, res) => {
     const password = req.body.password
     const email = req.body.email
     users.find( {"email": email, "password": password}, (err, result) => {
@@ -74,8 +76,10 @@ app.post('/v1/users/login', (req, res) => {
     })
 })
 
+// PROFILE API
+
 //getting profile API
-app.post('/v1/profile', (req, res) => {
+app.post('/api/v1/profile', (req, res) => {
     const email = req.body.email
     users.find( {"email": email}, (err, result) => {
         if(err) 
@@ -86,7 +90,7 @@ app.post('/v1/profile', (req, res) => {
 })
 
 //delete profile image API (setting profileImage to "")
-app.delete('/v1/profile/image', (req, res) => {
+app.delete('/api/v1/profile/image', (req, res) => {
     const email = req.body.email
     users.findOneAndUpdate(
         {"email": email},
@@ -101,7 +105,7 @@ app.delete('/v1/profile/image', (req, res) => {
 })
 
 //update profile image API
-app.patch('/v1/profile/image', (req, res) => {
+app.patch('/api/v1/profile/image', (req, res) => {
     const email = req.body.email
     const profileImage = req.body.profileImage
     users.findOneAndUpdate(
@@ -117,7 +121,7 @@ app.patch('/v1/profile/image', (req, res) => {
 })
 
 //update address API
-app.patch('/v1/profile/address', (req, res) => {
+app.patch('/api/v1/profile/address', (req, res) => {
     const email = req.body.email
     const address = req.body.address
     users.findOneAndUpdate(
