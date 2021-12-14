@@ -131,3 +131,62 @@ app.patch('/v1/profile/address', (req, res) => {
                 res.send({"status":"success", "message": "profile modified successfully"})
         })
 })
+
+
+
+
+// Homepage APIs
+
+// GET /api/v1/homepage/banner
+const homepageBanner = require('./schema/homepageBannerSchema')
+
+app.get('/api/v1/homepage/banner', (req, res) => {
+    homepageBanner.find({ published: true }, 
+        null, { limit: 3 },(err, result) => {
+        if (err)
+            res.send(err)
+        else
+            res.json({"status":"success","products": result})
+    })
+})
+
+
+// GET /api/v1/homepage/categories
+const homepageCategories = require('./schema/homepageCategoriesSchema')
+
+app.get('/api/v1/homepage/categories', (req, res) => {
+    homepageCategories.find({ published: true }, 
+        null, { limit: 3 },(err, result) => {
+        if (err)
+            res.send(err)
+        else
+            res.json({"status":"success","categories": result})
+    })
+})
+
+
+// GET /api/v1/homepage/products
+const homepageProducts = require('./schema/homepageProductsSchema')
+
+app.get('/api/v1/homepage/products', (req, res) => {
+    homepageProducts.find({ published: true }, 
+        null, { limit: 8 },(err, result) => {
+        if (err)
+            res.send(err)
+        else
+            res.json({"status":"success","products": result})
+    })
+})
+
+
+// GET /api/v1/products
+const products = require('./schema/productsSchema')
+
+app.get('/api/v1/products', (req, res) => {
+    products.find((err, result) => {
+        if (err)
+            res.send(err)
+        else
+            res.json({"status":"success","products": result})
+    })
+})
