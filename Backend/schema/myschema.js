@@ -8,7 +8,7 @@ const tableModel = new mySchema({
     password: {type: String},
     profileImage: {type: String},
     address: {type: Object},
-    interests: {type: String},
+    interests: {type: Array},
     phoneNumber: {type: String}
 }, {versionKey: false})
 
