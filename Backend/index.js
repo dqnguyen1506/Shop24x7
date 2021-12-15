@@ -11,7 +11,7 @@ const mongoose = require('mongoose')
 const cors = require('cors')
 
 const mydb = mongoose.connect(
-    'mongodb://localhost:27017/tcs15', 
+    'mongodb://localhost:27017/shop24x7', 
     {useUnifiedTopology: true, useNewUrlParser: true}
 )
 
