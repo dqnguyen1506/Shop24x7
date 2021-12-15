@@ -7,19 +7,11 @@ const userModel = new mySchema({
     email: {type: String},
     password: {type: String},
     profileImage: {type: String},
-    "address": {
-        "streetAddress": {
-          "type": "String"
-        },
-        "city": {
-          "type": "String"
-        },
-        "state": {
-          "type": "String"
-        },
-        "zipcode": {
-          "type": "String"
-        }
+    address: {
+        streetAddress: {type: String},
+        city: {type: String},
+        state: {type: String},
+        zipcode: {type: String}
     },
     interests: {type: Array},
     phoneNumber: {type: String}

@@ -38,6 +38,9 @@ export class LoginComponent implements OnInit {
       if(data.status === "failure"){
         this.notFound = true
       }else{
+        this.notFound = false
+        localStorage.setItem("token", data.token)
+        console.log(localStorage.getItem("token"))
         this.route.navigate(['/home'])
       }
     })
