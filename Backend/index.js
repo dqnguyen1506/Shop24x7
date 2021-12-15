@@ -47,6 +47,7 @@ app.post('/api/v1/users/register', (req, res) => {
             "lastName": lName, 
             "password": password, 
             "email": email,
+            "role": "user",
             "profileImage": "", 
             "interests": "",
             "phoneNumber": "",
@@ -83,7 +84,7 @@ app.post('/api/v1/users/login', (req, res) => {
             //password not found
             if(!validate) return res.status(401).send({"status":"failure", "message": "password incorrect"})
             var mytoken = jwt.sign({id: result._id}, config.secret, {expiresIn: 3600})
-            return res.status(200).send({"status":"success", "message": "user logged in successfully.", "token": mytoken})
+            return res.status(200).send({"status":"success", "message": "user logged in successfully.", "token": mytoken, "role": result.role})
         }
     })
 })

@@ -22,6 +22,11 @@ export class LoginComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
       })
+    //reset token and role upon rendering /role
+    localStorage.removeItem('token')
+    localStorage.removeItem('role')
+    console.log("token @/login: " + localStorage.getItem('token'))
+    console.log("role @/role: " + localStorage.getItem("role"))
   }
 
   // convenience getter for easy access to form fields
@@ -39,27 +44,12 @@ export class LoginComponent implements OnInit {
         this.notFound = true
       }else{
         this.notFound = false
+        //set token and role from the server response
         localStorage.setItem("token", data.token)
-        console.log(localStorage.getItem("token"))
+        localStorage.setItem("role", data.role)
         this.route.navigate(['/home'])
       }
     })
-
-    // this.route.navigate(['/register'])
-
-
-    // const userMatch = this.usersList.filter(user => 
-    //   user.email === this.userLoginForm.get('email')?.value &&
-    //   user.password === this.userLoginForm.get('password')?.value
-    // )
-    // if(userMatch.length === 1){
-    //   GlobalConstants.currUsername = userMatch[0].name
-    //   this.route.navigate(['/home'])
-    // }
-    // else{
-    //   this.wrongInput = true
-    // }
-
   }
 
 }
