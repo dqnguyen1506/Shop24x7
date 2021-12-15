@@ -6,6 +6,7 @@ const userModel = new mySchema({
     lastName: {type: String},
     email: {type: String},
     password: {type: String},
+    role: {type: String},
     profileImage: {type: String},
     address: {
         streetAddress: {type: String},

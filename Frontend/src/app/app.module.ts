@@ -23,6 +23,8 @@ import { ProductsService } from './services/products/products.service';
 import { CategoryComponent } from './components/category/category.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { ProductComponent } from './components/product/product.component';
+import { AuthService } from './services/auth/auth.service';
+import { JwtHelperService, JWT_OPTIONS  } from '@auth0/angular-jwt';
 
 @NgModule({
   declarations: [
@@ -49,7 +51,8 @@ import { ProductComponent } from './components/product/product.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [UserService, HomepageService, ProductsService],
+  providers: [UserService, HomepageService, ProductsService, AuthService, { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
+    JwtHelperService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

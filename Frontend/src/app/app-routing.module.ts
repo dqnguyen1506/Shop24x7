@@ -9,9 +9,10 @@ import { ProductsDetailsComponent } from './components/products/products-details
 import { ProductsComponent } from './components/products/products/products.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { RegisterPageComponent } from './components/register-page/register-page.component';
+import { AuthGuard } from './guard/auth.guard';
 
 const routes: Routes = [
-  {path: '', component: HomepageComponent },
+  {path: 'home', component: HomepageComponent },
   {path: 'login', component: LoginPageComponent},
   {path: 'register', component: RegisterPageComponent},
   {path: 'products', children:[
