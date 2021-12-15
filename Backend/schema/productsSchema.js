@@ -8,7 +8,7 @@ const tableModel = new productsSchema({
     discountPrice: {type: Number},
     description: {type: String},
     image: {type: String},
-    created_on: {type: Date},
+    created_on: {type: Date, default: Date.now},
     isTopProduct: {type: Boolean}
 }, {versionKey: false})
 
