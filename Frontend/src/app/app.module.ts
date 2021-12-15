@@ -4,8 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CheckoutComponent } from './checkout/checkout.component';
-import { AddNewProductComponent } from './add-new-product/add-new-product.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
+import { AddNewProductComponent } from './components/add-new-product/add-new-product.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component'
 import { HeaderComponent } from './components/header/header.component';
