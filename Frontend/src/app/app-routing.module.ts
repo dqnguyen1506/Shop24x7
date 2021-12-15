@@ -13,8 +13,6 @@ const routes: Routes = [
   {path: 'login', component: LoginPageComponent},
   {path: 'register', component: RegisterPageComponent},
   {path: 'home', component: HomepageComponent,
-    canActivate: [AuthGuard],
-    data: {role: "admin"}
   },
   {path: 'products', component: ProductsComponent},
   {path: 'products/:id', component: ProductsDetailsComponent}
