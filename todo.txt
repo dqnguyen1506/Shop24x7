@@ -1,0 +1,14 @@
+ToDo:
+-Cart
+-Checkout
+-Homepage
+-Login (login functionality doesn't redirect to homepage)
+-Profile (need to post address and image change)
+-Categories (need to implement filtering/sorting and reading from backend)
+-Products (need to read from backend)
+-Orders
+-Admin add new product
+-Admin manage products
+-Admin manage orders
+
+-Other various backend stuff
