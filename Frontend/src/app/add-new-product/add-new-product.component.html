@@ -1,0 +1,67 @@
+<html>
+<body>
+  <form [formGroup]="addingProduct" (ngSubmit)="receivingProductData()">
+  <div class="position-absolute top-50 start-50 translate-middle" >
+    <div class="bg-light">
+        <h5 class="card-title">Add new product</h5>
+    </div>
+    <br/>
+      <div class="mb-3">
+          <label for="productName">Product Name</label>
+          <input type="text" formControlName="productName" class="form-control"  style="width: 500px;" [ngClass]="{'is-invalid': addingProduct.get('productName')?.touched && addingProduct.get('productName')?.invalid}"> 
+          <div class="invalid-feedback">
+            <div>Valid Product Name is required</div>
+          </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="department">Department</label>
+        <input type="text" formControlName="department" class="form-control"  style="width: 500px;" [ngClass]="{'is-invalid': addingProduct.get('department')?.touched && addingProduct.get('department')?.invalid}"> 
+        <div class="invalid-feedback">
+          <div>Valid Department is required</div>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="price">Price</label>
+        <input type="text" formControlName="price" class="form-control"  style="width: 500px;" [ngClass]="{'is-invalid': addingProduct.get('price')?.touched && addingProduct.get('price')?.invalid}">
+        <div class="invalid-feedback">
+          <div>Valid Price is required</div>
+        </div> 
+      </div>
+
+      <div class="mb-3">
+        <label for="discountprice">Discount Price</label>
+        <input type="text" formControlName="discountprice" class="form-control"  style="width: 500px;" [ngClass]="{'is-invalid': addingProduct.get('discountprice')?.touched && addingProduct.get('discountprice')?.invalid}"> 
+        <div class="invalid-feedback">
+          <div>Valid Discount Price is required</div>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="productimage">Product Image</label>
+        <input type="text" formControlName="productimage" class="form-control"  style="width: 500px;" [ngClass]="{'is-invalid': addingProduct.get('productimage')?.touched && addingProduct.get('productimage')?.invalid}"> 
+        <div class="invalid-feedback">
+          <div>Valid Product Image is required</div>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="productdescription">Product Description</label>
+        <input type="text" formControlName="productdescription" class="form-control"  style="width: 500px; height: 150px;" [ngClass]="{'is-invalid': addingProduct.get('productdescription')?.touched && addingProduct.get('productdescription')?.invalid}"> 
+        <div class="invalid-feedback">
+          <div>Valid Product Description is required</div>
+        </div>
+      </div>
+      
+      <div class="mb-3 form-check">
+        <label class="form-check-label" for="exampleCheck1">Top Selling Product</label>
+        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+      </div>
+
+      <button [disabled]="addingProduct.invalid" data-testid="checkout-button" type="submit" class="btn btn-warning" style="position:absolute; left: 340px; width: 160px;" >Add New Product</button>
+
+</div>
+</form>
+</body>
+</html>
