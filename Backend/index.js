@@ -211,6 +211,7 @@ app.get('/api/v1/products/:PRODUCT_ID', (req, res) => {
 
 // POST /api/v1/admin/products
 app.post('/api/v1/admin/products', (req, res) => {
+    req.body.created_on = new Date()
     products.insertMany(req.body, (err, result) => {
         if(err) 
             res.send(err)
