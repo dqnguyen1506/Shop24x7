@@ -194,3 +194,46 @@ app.get('/api/v1/products', (req, res) => {
             res.json({"status":"success","products": result})
     })
 })
+
+
+// GET /api/v1/products/:PRODUCT_ID
+// const products = require('./schema/productsSchema')
+app.get('/api/v1/products/:PRODUCT_ID', (req, res) => {
+    var ObjectId = require('mongodb').ObjectId; 
+    const productID = req.params['PRODUCT_ID']
+    console.log(productID)
+    products.find({ "_id": ObjectId(productID) }, (err, result) => {
+        if (err)
+            res.send(err)
+        else
+            res.json(result)
+    })
+})
+
+// POST /api/v1/admin/products
+app.post('/api/v1/admin/products', (req, res) => {
+    products.insertMany(req.body, (err, result) => {
+        if(err) 
+            res.send(err)
+        else
+            res.send({"status":"success", "message": "product added successfully"})
+    })
+})
+
+
+// DELETE /api/v1/admin/products/:id
+app.delete('/api/v1/admin/products/:id', (req, res) => {
+    //db.mytable.deleteOne(data)
+    var ObjectId = require('mongodb').ObjectId; 
+    const productID = req.params['id']
+    products.findOneAndDelete({ "_id": ObjectId(productID) },
+            (err, result) => {
+                if (err)
+                    res.send(err)
+                else
+                res.send({"status":"success", "message": "product deleted successfully"})
+            })
+})
+
+// PATCH /api/v1/admin/products/:id
+// ---------------pending--------------------------
