@@ -1,0 +1,116 @@
+<form
+    class="registerForm p-4"
+    [formGroup]="userRegistrationForm"
+    (ngSubmit)="registerNewUser()"
+>   
+    <h1>Register</h1>
+    <div class="row mt-2 mb-3">
+        <div class="col">
+            <div class="form-outline">
+                <label class="form-label" for="firstNameForm">First Name</label>
+                <input 
+                    data-testid="register-first-name"
+                    type="text" 
+                    class="form-control" 
+                    id="firstNameForm"
+                    formControlName="fName"
+                    [ngClass]="{ 'is-invalid': submitted && f?.['fName']?.errors }" 
+                >
+                <div *ngIf="submitted && f?.['fName']?.errors" class="invalid-feedback">
+                    <div *ngIf="f?.['fName']?.errors?.['required']">
+                        First name cannot be empty
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-outline">
+                <label class="form-label" for="lastNameForm">Last Name</label>
+                <input 
+                    data-testid="register-last-name"
+                    type="text" 
+                    class="form-control" 
+                    id="lastNameForm"
+                    formControlName="lName"
+                    [ngClass]="{ 'is-invalid': submitted && f?.['lName']?.errors }" 
+                >
+                <div *ngIf="submitted && f?.['lName']?.errors" class="invalid-feedback">
+                    <div *ngIf="f?.['lName']?.errors?.['required']">
+                        Last name cannot be empty
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col">
+            <label for="exampleInputEmail1" class="form-label mt-1">Email</label>
+            <input 
+                data-testid="register-email"
+                type="email" 
+                class="form-control"
+                formControlName="email"
+                [ngClass]="{ 'is-invalid': submitted && f?.['email']?.errors }" 
+            >
+            <div *ngIf="submitted && f?.['email']?.errors" class="invalid-feedback">
+                <div *ngIf="f?.['email']?.errors?.['required']">
+                    Email cannot be empty
+                </div>
+                <div *ngIf="f?.['email']?.errors?.['email']">
+                    Enter a valid email address, e.g., john@example.com
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col">
+            <label for="exampleInputEmail1" class="form-label mt-1">Password</label>
+            <input 
+                data-testid="register-password"
+                type="password" 
+                class="form-control"
+                formControlName="password"  
+                [ngClass]="{ 'is-invalid': submitted && f?.['password']?.errors }"
+            >
+            <div *ngIf="submitted && f?.['password']?.errors" class="invalid-feedback">
+                <div *ngIf="f?.['password']?.errors?.['required']">
+                    Password cannot be empty
+                </div>
+                <div *ngIf="f?.['password']?.errors?.['minlength']">
+                    Password must be at least 6 characters
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mb-4">
+        <div class="col">
+            <label for="exampleInputEmail1" class="form-label mt-1">Confirm Password</label>
+            <input 
+                data-testid="register-confirm-password"
+                type="password" 
+                class="form-control" 
+                formControlName="confirmPassword"   
+                [ngClass]="{ 'is-invalid': submitted && f?.['confirmPassword']?.errors }"
+            >
+            <div *ngIf="submitted && f?.['confirmPassword']?.errors" class="invalid-feedback">
+                <div *ngIf="f?.['confirmPassword']?.errors?.['required']">
+                    Password cannot be empty
+                </div>
+                <div *ngIf="f?.['confirmPassword']?.errors?.['mustMatch']">
+                    Password mismatch
+                </div>
+            </div>
+        </div>
+    </div>
+    <button data-testid="register-submit" type="submit" class="btn btn-primary">Register</button>
+</form>
+<!-- Alert Message -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
+      <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+    </symbol>
+</svg>
+<div *ngIf="registerSuccess" class="alert alert-success mt-3" role="alert">
+    <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+    User registered successfully!
+</div>

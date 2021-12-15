@@ -1,0 +1,12 @@
+.products{
+    margin-top: 20px;
+}
+
+.products .card-text{
+    display: grid;
+}
+
+
+.clickable-pointer{
+    cursor: pointer;
+}

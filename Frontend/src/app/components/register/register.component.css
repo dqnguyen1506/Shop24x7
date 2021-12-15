@@ -1,0 +1,17 @@
+#center{
+    width: 100%;
+}
+
+.registerForm{
+    outline: 1px solid black;
+    border-radius: 5px;
+    width: 75%;
+}
+
+button{
+    width: 100%;
+}
+
+.alert{
+    width: 75%;
+}

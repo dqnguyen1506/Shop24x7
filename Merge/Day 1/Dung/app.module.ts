@@ -1,11 +1,8 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CheckoutComponent } from './checkout/checkout.component';
-import { AddNewProductComponent } from './add-new-product/add-new-product.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component'
 import { HeaderComponent } from './components/header/header.component';
@@ -15,35 +12,24 @@ import { LoginPageComponent } from './components/login-page/login-page.component
 import { RegisterPageComponent } from './components/register-page/register-page.component';
 import { UserService } from './services/user/user.service';
 import { HttpClientModule } from '@angular/common/http';
-import { HomepageComponent } from './components/homepage/homepage.component';
-import { HomepageService } from './services/homepage/homepage.service';
-import { ProductsComponent } from './components/products/products/products.component';
-import { ProductsDetailsComponent } from './components/products/products-details/products-details.component';
-import { ProductsService } from './services/products/products.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CheckoutComponent,
-    AddNewProductComponent,
     LoginComponent,
     RegisterComponent,
     HeaderComponent,
     FooterComponent,
     LoginPageComponent,
-    RegisterPageComponent,
-    HomepageComponent,
-    ProductsComponent,
-    ProductsDetailsComponent
+    RegisterPageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule,
     HttpClientModule
   ],
-  providers: [UserService, HomepageService, ProductsService],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

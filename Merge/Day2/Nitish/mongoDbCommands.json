@@ -1,0 +1,163 @@
+//create a db 
+use shop24x7
+or
+tcs15
+
+// Homepage banner
+db.createCollection("homepageBanner") 
+
+db.homepageBanner.insertMany([{
+	"image" : "https://m.media-amazon.com/images/I/51aBioRLExL._AC_SL1000_.jpg",
+	"name" : "Banner 1"
+	},
+	{
+	"image" : "https://www.annfone.com/img/cms/mobiles-phones-banner.png",
+	"name" : "Banner 2"
+	},
+	{
+	"image" : "https://previews.123rf.com/images/gmast3r/gmast3r1710/gmast3r171002170/88646835-black-friday-sale-template-horizontal-banner-discounts-on-modern-smart-phones-poster-design-vector-i.jpg",
+	"name" : "Banner 3"
+	}]
+)
+
+// Homepage Categories
+db.createCollection("homepageCategories") 
+
+db.homepageCategories.insertMany([{
+	"name" : "Mobile"
+	},
+	{
+	"name" : "Computer"
+	},
+	{
+	"name" : "Book"
+	}]
+)
+
+
+//Products:
+db.createCollection("products") 
+
+db.products.insertMany(
+	[{
+	"name" : "Apple iPhone 13 Pro Max",
+	"category" : "mobile",
+	"price" : 1599.0,
+	"discountPrice" : 1399.0,
+	"description" : "Apple iPhone 13 Pro Max (1TB, Sierra Blue) [Locked] + Carrier Subscription",
+	"image" : "https://m.media-amazon.com/images/I/61i8Vjb17SL._FMwebp__.jpg",
+	"created_on" : "",
+	"isTopProduct" : true
+	},
+	{
+	"name" : "Apple iPhone SE",
+	"category" : "mobile",
+	"price" : 399.0,
+	"discountPrice" : 359.0,
+	"description" : "New Apple iPhone SE (64GB, White) [Locked] + Carrier Subscription",
+	"image" : "https://m.media-amazon.com/images/I/81UhYiZH98L._FMwebp__.jpg",
+	"created_on" : "",
+	"isTopProduct" : true
+	},
+	{
+	"name" : "SAMSUNG Galaxy S21 Ultra 5G",
+	"category" : "mobile",
+	"price" : 1199.0,
+	"discountPrice" : 999.0,
+	"description" : "SAMSUNG Galaxy S21 Ultra 5G Factory Unlocked Android Cell Phone 128GB US Version Smartphone Pro-Grade Camera 8K Video 108MP High Res, Phantom Black",
+	"image" : "https://m.media-amazon.com/images/I/61O45C5qASL._AC_SL1000_.jpg",
+	"created_on" : "",
+	"isTopProduct" : true
+	},
+	{
+	"name" : "OnePlus Nord N200",
+	"category" : "mobile",
+	"price" : 249.0,
+	"discountPrice" : 239.0,
+	"description" : "OnePlus Nord N200 | 5G Unlocked Android Smartphone U.S Version | 6.49 Full HD+LCD Screen | 90Hz Smooth Display | Large 5000mAh Battery | Fast Charging | 64GB Storage | Triple Camera,Blue Quantum",
+	"image" : "https://m.media-amazon.com/images/I/71DCZOdq92S._AC_SL1500_.jpg",
+	"created_on" : "",
+	"isTopProduct" : false
+	},
+	{
+	"name" : "LG Stylo 6",
+	"category" : "mobile",
+	"price" : 163.99,
+	"discountPrice" : 152.5,
+	"description" : "LG Stylo 6 Android Smartphone – 64 GB - (Renewed) (White, GSM Unlocked)",
+	"image" : "https://m.media-amazon.com/images/I/51lRb2BJiJL._AC_.jpg",
+	"created_on" : "",
+	"isTopProduct" : false
+	},
+	{
+	"name" : "2021 Apple MacBook Pro",
+	"category" : "computer",
+	"price" : 2799.0,
+	"discountPrice" : 2698.0,
+	"description" : "2021 Apple MacBook Pro (16-inch, Apple M1 Pro chip with 10‑core CPU and 16‑core GPU, 16GB RAM, 1TB SSD) - Silver",
+	"image" : "https://m.media-amazon.com/images/I/61Y30DpqRVL._AC_SL1500_.jpg",
+	"created_on" : "",
+	"isTopProduct" : true
+	},
+	{
+	"name" : "HP OMEN 15",
+	"category" : "computer",
+	"price" : 8499.0,
+	"discountPrice" : 8109.0,
+	"description" : "HP OMEN 15 Gaming & Entertainment Laptop (Intel i7-10750H 6-Core, 64GB RAM, 2x8TB PCIe SSD (16TB), RTX 3070, 15.6",
+	"image" : "https://m.media-amazon.com/images/I/61EIw4ovp-L._AC_SL1317_.jpg",
+	"created_on" : "",
+	"isTopProduct" : true
+	},
+	{
+	"name" : "Lenovo Ideapad 3i",
+	"category" : "computer",
+	"price" : 459.0,
+	"discountPrice" : 429.0,
+	"description" : "2022 Newest Lenovo Ideapad 3i Laptop, 15.6 Full HD 1080P Non-Touch Display, Intel Pentium Gold 7505 Processor, Webcam, HDMI, Wireless-AX Wi-Fi 6, Bluetoooth, Windows 11 Home (8GB RAM | 256GB SSD)",
+	"image" : "https://m.media-amazon.com/images/I/71Mk6xUQQbL._AC_SL1468_.jpg",
+	"created_on" : "",
+	"isTopProduct" : false
+	},
+	{
+	"name" : "Dell Inspiron 15",
+	"category" : "computer",
+	"price" : 549.0,
+	"discountPrice" : 479.0,
+	"description" : "Dell Inspiron 15 3511, 15.6 inch FHD Non-Touch Laptop - Intel Core i3-1115G4, 8GB DDR4 RAM, 256GB SSD, Intel UHD Graphics, Windows 11 Home - Carbon Black (Latest Model)",
+	"image" : "https://m.media-amazon.com/images/I/81x8wuiiloS._AC_SL1500_.jpg",
+	"created_on" : "",
+	"isTopProduct" : false
+	},
+	{
+	"name" : "Harry Potter and the Cursed Child",
+	"category" : "book",
+	"price" : 12.99,
+	"discountPrice" : 7.98,
+	"description" : "Harry Potter and the Cursed Child, Parts One and Two: The Official Playscript of the Original West End Production: The Official Script Book of the Original West End Production Paperback",
+	"image" : "https://m.media-amazon.com/images/P/1338099132.01._SCLZZZZZZZ_SX500_.jpg",
+	"created_on" : "",
+	"isTopProduct" : true
+	},
+	{
+	"name" : "The Plot",
+	"category" : "book",
+	"price" : 28.0,
+	"discountPrice" : 14.99,
+	"description" : "The Plot: A Novel by Jean Hanff Korelitz",
+	"image" : "https://m.media-amazon.com/images/I/41zL0hNr9RS.jpg",
+	"created_on" : "",
+	"isTopProduct" : false
+	},
+	{
+	"name" : "Hunger Games 4-Book",
+	"category" : "book",
+	"price" : 84.96,
+	"discountPrice" : 39.49,
+	"description" : "Hunger Games 4-Book Hardcover Box Set (The Hunger Games, Catching Fire, Mockingjay, The Ballad of Songbirds and Snakes)",
+	"image" : "https://images-na.ssl-images-amazon.com/images/I/41KqldkPG3L._SX331_BO1,204,203,200_.jpg",
+	"created_on" : "",
+	"isTopProduct" : true
+	}
+	]
+)
