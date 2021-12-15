@@ -237,3 +237,28 @@ app.delete('/api/v1/admin/products/:id', (req, res) => {
 
 // PATCH /api/v1/admin/products/:id
 // ---------------pending--------------------------
+
+
+
+// Category Listing
+// GET /api/v1/categories/:CATEGORY_ID
+
+app.get('/api/v1/categories/:CATEGORY_ID', (req, res) => {
+    var ObjectId = require('mongodb').ObjectId; 
+    const CATEGORY_ID = req.params['CATEGORY_ID']
+    console.log(CATEGORY_ID)
+    
+    homepageCategories.find({ "_id": ObjectId(CATEGORY_ID) }, (err, result) => {
+        if (err)
+            res.send(err)
+        else
+            var category_name = result[0].name.toLowerCase()
+            products.find({ "category": category_name }, (err, result) => {
+                if (err)
+                    res.send(err)
+                else
+                    console.log(result)
+                    res.json({"status":"success","category": category_name,"products": result})
+            })
+    })
+})
