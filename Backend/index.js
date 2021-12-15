@@ -161,9 +161,9 @@ app.get('/api/v1/homepage/banner', (req, res) => {
     homepageBanner.find({ published: true }, 
         null, { limit: 3 },(err, result) => {
         if (err)
-            res.send(err)
+            res.status(500).send(err)
         else
-            res.json({"status":"success","products": result})
+            res.status(200).json({"status":"success","products": result})
     })
 })
 
@@ -175,9 +175,9 @@ app.get('/api/v1/homepage/categories', (req, res) => {
     homepageCategories.find({ published: true }, 
         null, { limit: 3 },(err, result) => {
         if (err)
-            res.send(err)
+            res.status(500).send(err)
         else
-            res.json({"status":"success","categories": result})
+            res.status(200).json({"status":"success","categories": result})
     })
 })
 
@@ -189,9 +189,9 @@ app.get('/api/v1/homepage/products', (req, res) => {
     homepageProducts.find({ published: true }, 
         null, { limit: 8 },(err, result) => {
         if (err)
-            res.send(err)
+            res.status(500).send(err)
         else
-            res.json({"status":"success","products": result})
+            res.status(200).json({"status":"success","products": result})
     })
 })
 
@@ -203,9 +203,9 @@ const { response } = require('express')
 app.get('/api/v1/products', (req, res) => {
     products.find((err, result) => {
         if (err)
-            res.send(err)
+            res.status(500).send(err)
         else
-            res.json({"status":"success","products": result})
+            res.status(200).json({"status":"success","products": result})
     })
 })
 
@@ -217,9 +217,9 @@ app.get('/api/v1/products/:PRODUCT_ID', (req, res) => {
     console.log(productID)
     products.find({ "_id": ObjectId(productID) }, (err, result) => {
         if (err)
-            res.send(err)
+            res.status(500).send(err)
         else
-            res.json({"status":"success","product": result[0]})
+            res.status(200).json({"status":"success","product": result[0]})
     })
 })
 
@@ -228,9 +228,9 @@ app.post('/api/v1/admin/products', (req, res) => {
     req.body.created_on = new Date()
     products.insertMany(req.body, (err, result) => {
         if(err) 
-            res.send(err)
+            res.status(500).send(err)
         else
-            res.send({"status":"success", "message": "product added successfully"})
+            res.status(200).send({"status":"success", "message": "product added successfully"})
     })
 })
 
@@ -243,9 +243,9 @@ app.delete('/api/v1/admin/products/:id', (req, res) => {
     products.findOneAndDelete({ "_id": ObjectId(productID) },
             (err, result) => {
                 if (err)
-                    res.send(err)
+                    res.status(500).send(err)
                 else
-                res.send({"status":"success", "message": "product deleted successfully"})
+                res.status(200).send({"status":"success", "message": "product deleted successfully"})
             })
 })
 
@@ -264,15 +264,15 @@ app.get('/api/v1/categories/:CATEGORY_ID', (req, res) => {
     
     homepageCategories.find({ "_id": ObjectId(CATEGORY_ID) }, (err, result) => {
         if (err)
-            res.send(err)
+            res.status(500).send(err)
         else
             var category_name = result[0].name.toLowerCase()
             products.find({ "category": category_name }, (err, result) => {
                 if (err)
-                    res.send(err)
+                    res.status(500).send(err)
                 else
                     console.log(result)
-                    res.json({"status":"success","category": category_name,"products": result})
+                    res.status(200).json({"status":"success","category": category_name,"products": result})
             })
     })
 })
