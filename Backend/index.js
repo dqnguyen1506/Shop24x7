@@ -197,7 +197,6 @@ app.get('/api/v1/products', (req, res) => {
 
 
 // GET /api/v1/products/:PRODUCT_ID
-// const products = require('./schema/productsSchema')
 app.get('/api/v1/products/:PRODUCT_ID', (req, res) => {
     var ObjectId = require('mongodb').ObjectId; 
     const productID = req.params['PRODUCT_ID']
@@ -206,7 +205,7 @@ app.get('/api/v1/products/:PRODUCT_ID', (req, res) => {
         if (err)
             res.send(err)
         else
-            res.json(result)
+            res.json({"status":"success","product": result[0]})
     })
 })
 
