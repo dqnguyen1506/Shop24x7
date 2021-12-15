@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit {
   constructor(private fb: FormBuilder, private route: Router, private _userService: UserService) {}
 
   ngOnInit() {
+    localStorage.setItem('email', '')
     this.userLoginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
@@ -40,6 +41,7 @@ export class LoginComponent implements OnInit {
       }else{
         this.notFound = false
         localStorage.setItem("token", data.token)
+        localStorage.setItem("email", this.userLoginForm.controls['email'].value)
         console.log(localStorage.getItem("token"))
         this.route.navigate(['/home'])
       }

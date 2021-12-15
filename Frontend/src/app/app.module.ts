@@ -20,6 +20,9 @@ import { HomepageService } from './services/homepage/homepage.service';
 import { ProductsComponent } from './components/products/products/products.component';
 import { ProductsDetailsComponent } from './components/products/products-details/products-details.component';
 import { ProductsService } from './services/products/products.service';
+import { CategoryComponent } from './components/category/category.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { ProductComponent } from './components/product/product.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +37,10 @@ import { ProductsService } from './services/products/products.service';
     RegisterPageComponent,
     HomepageComponent,
     ProductsComponent,
-    ProductsDetailsComponent
+    ProductsDetailsComponent,
+    CategoryComponent,
+    ProfileComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,
