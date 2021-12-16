@@ -161,3 +161,58 @@ db.products.insertMany(
 	}
 	]
 )
+
+
+
+
+// add users 
+// Two users:
+
+// 1.
+// email:		user@tcs.com
+// passwword:	123456
+
+// 2.
+// email:		admin@tcs.com
+// passwword:	123456
+
+
+db.createCollection("users") 
+
+
+db.users.insertMany(
+	[{
+		"firstName": "TCS", 
+		"lastName": "User", 
+		"password": "$2a$08$Wiv3fe3QLosuzsSs8zyLK.h4vIMunl0P9PmO5eRjJSPa3wyJAn8fS", 
+		"email": "user@tcs.com",
+		"role": "user",
+		"profileImage": "", 
+		"interests": "Football",
+		"phoneNumber": "(123) 456-7890",
+		"address": 
+		{
+			"streetAddress": "11 Second St", 
+			"city": "Seattle",
+			"state": "Washington",
+			"zipcode": "56382"
+		}
+	},{
+		"firstName": "TCS", 
+		"lastName": "Admin", 
+		"password": "$2a$08$Wiv3fe3QLosuzsSs8zyLK.h4vIMunl0P9PmO5eRjJSPa3wyJAn8fS", 
+		"email": "admin@tcs.com",
+		"role": "admin",
+		"profileImage": "", 
+		"interests": "Basketball",
+		"phoneNumber": "(123) 456-7890",
+		"address": 
+		{
+			"streetAddress": "11 Second St", 
+			"city": "Seattle",
+			"state": "Washington",
+			"zipcode": "56382"
+		}
+	}
+	]
+)
