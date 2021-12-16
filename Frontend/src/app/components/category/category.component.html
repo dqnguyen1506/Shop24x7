@@ -72,11 +72,29 @@
     <div class="col-md-3">
       <div class="fw-bold m-4"><br />
         Price Range<br />
-        $5-$50<br />
-        $50-$150<br />
-        $150-$500<br />
-        $500-$1500<br />
-        $1500-$5000<br />
+        <div>
+          <input type="radio" id="5-50" name="filter" value="5-50" (click)="filterSelect('5-50')">
+          <label for="5-50">{{5 | currency:'EUR'}}-{{50 | currency:'EUR' }}</label>
+        </div>
+        
+        <div>
+          <input type="radio" id="50-150" name="filter" value="50-150" (click)="filterSelect('50-150')">
+          <label for="50-150">{{50 | currency:'EUR'}}-{{150 | currency:'EUR' }}</label>
+        </div>
+        
+        <div>
+          <input type="radio" id="150-500" name="filter" value="150-500" (click)="filterSelect('150-500')">
+          <label for="150-500">{{150 | currency:'EUR'}}-{{500 | currency:'EUR' }}</label>
+        </div>
+        <div>
+          <input type="radio" id="500-1500" name="filter" value="500-1500" (click)="filterSelect('500-1500')">
+          <label for="500-1500">{{500 | currency:'EUR'}}-{{1500 | currency:'EUR' }}</label>
+        </div>
+        
+        <div>
+          <input type="radio" id="1500-5000" name="filter" value="1500-5000" (click)="filterSelect('1500-5000')">
+          <label for="1500-5000">{{1500 | currency:'EUR'}}-{{5000 | currency:'EUR' }}</label>
+        </div>
       </div>
     </div>
     <div class="col-md-9">
@@ -85,7 +103,7 @@
 
   
         
-        <div class="mt-2 mb-2 col-lg-4 col-md-6 col-sm-6" *ngFor="let product of products" [hidden]="!product.isTopProduct">
+        <div class="mt-2 mb-2 col-lg-4 col-md-6 col-sm-6" *ngFor="let product of productsDisplay" [hidden]="!product.isTopProduct">
           <div class="card h-100 " >
             <div class="card-body d-flex flex-column">
               <span class="clickable-pointer" [routerLink]="['/products/', product._id]">
@@ -110,7 +128,7 @@
         </div>
 
 
-        <div class="mt-2 mb-2 col-lg-4 col-md-6 col-sm-6" *ngFor="let product of products" [hidden]="product.isTopProduct">
+        <div class="mt-2 mb-2 col-lg-4 col-md-6 col-sm-6" *ngFor="let product of productsDisplay" [hidden]="product.isTopProduct">
           <div class="card h-100 " >
             <div class="card-body d-flex flex-column">
               <span class="clickable-pointer" [routerLink]="['/products/', product._id]">
