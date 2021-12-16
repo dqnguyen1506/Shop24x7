@@ -1,0 +1,109 @@
+<div class="container">
+    <div class="row">
+      <div class="mx-auto col-md-8 mt-4">
+        <h3>Edit product</h3>
+  
+        <form class="" [formGroup]="updateProduct" (ngSubmit)="receivingProductData(updateProduct.value)">
+          <div class="form-group row mb-3">
+            <input type="hidden" formControlName="_id" class="form-control">
+            <label for="name">Product Name</label>
+            <div>
+              <input type="text" formControlName="name" class="form-control" [ngClass]="{
+                  'is-invalid':
+                    updateProduct.get('name')?.touched &&
+                    updateProduct.get('name')?.invalid
+                }" />
+              <div class="invalid-feedback">
+                <div>Valid Product Name is required</div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="form-group row mb-3">
+            <label for="category">Department</label>
+            <div>
+              <input type="text" formControlName="category" class="form-control" [ngClass]="{
+                  'is-invalid':
+                    updateProduct.get('category')?.touched &&
+                    updateProduct.get('category')?.invalid
+                }" />
+              <div class="invalid-feedback">
+                <div>Valid Department is required</div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="form-group row mb-3">
+            <label for="price">Price</label>
+            <div>
+              <input type="text" formControlName="price" class="form-control" [ngClass]="{
+                  'is-invalid':
+                    updateProduct.get('price')?.touched &&
+                    updateProduct.get('price')?.invalid
+                }" />
+              <div class="invalid-feedback">
+                <div>Valid Price is required</div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="form-group row mb-3">
+            <label for="discountPrice">Discount Price</label>
+            <div>
+              <input type="text" formControlName="discountPrice" class="form-control" [ngClass]="{
+                  'is-invalid':
+                    updateProduct.get('discountPrice')?.touched &&
+                    updateProduct.get('discountPrice')?.invalid
+                }" />
+              <div class="invalid-feedback">
+                <div>Valid Discount Price is required</div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="form-group row mb-3">
+            <label for="image">Product Image</label>
+            <div>
+              <input type="text" formControlName="image" class="form-control" [ngClass]="{
+                  'is-invalid':
+                    updateProduct.get('image')?.touched &&
+                    updateProduct.get('image')?.invalid
+                }" />
+              <div class="invalid-feedback">
+                <div>Valid Product Image is required</div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="form-group row mb-3">
+            <label for="description">Product Description</label>
+            <div>
+              <textarea formControlName="description" class="form-control" rows="3" [ngClass]="{
+                  'is-invalid':
+                    updateProduct.get('description')?.touched &&
+                    updateProduct.get('description')?.invalid
+                }"></textarea>
+  
+              <div class="invalid-feedback">
+                <div>Valid Product Description is required</div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="form-group row mb-3 form-check">
+            <div>
+              <label class="form-check-label" for="exampleCheck1">Top Selling Product</label>
+              <input type="checkbox" class="form-check-input" id="exampleCheck1" formControlName="isTopProduct" />
+            </div>
+          </div>
+  
+          <div class="form-group row mb-3" class="float-end">
+              <button  [disabled]="updateProduct.invalid" data-testid="add-new-button" type="submit"
+                class="btn btn-warning">
+                Update Product
+              </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>

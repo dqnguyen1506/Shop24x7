@@ -27,6 +27,8 @@ import { AuthService } from './services/auth/auth.service';
 import { JwtHelperService, JWT_OPTIONS  } from '@auth0/angular-jwt';
 import { ManageProductsComponent } from './components/manage-products/manage-products.component';
 import { ManageOrderComponent } from './components/manage-order/manage-order.component';
+import { EditProductComponent } from './components/edit-product/edit-product.component';
+import { AdminPageService } from './services/admin/admin-page.service';
 
 @NgModule({
   declarations: [
@@ -46,7 +48,8 @@ import { ManageOrderComponent } from './components/manage-order/manage-order.com
     ProfileComponent,
     ProductComponent,
     ManageProductsComponent,
-    ManageOrderComponent
+    ManageOrderComponent,
+    EditProductComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +59,7 @@ import { ManageOrderComponent } from './components/manage-order/manage-order.com
     HttpClientModule
   ],
   providers: [UserService, HomepageService, ProductsService, AuthService, { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
-    JwtHelperService],
+    JwtHelperService, AdminPageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
