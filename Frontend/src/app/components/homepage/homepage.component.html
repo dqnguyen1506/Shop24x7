@@ -29,7 +29,7 @@
     <div class="row categories" data-testid="homepage-category">
         <h4>Categories</h4>
         <div class="col-sm-4" *ngFor="let category of categoriesList">
-            <div class="card text-center mt-2 clickable-pointer" style="height: 100px;" [routerLink]="['/categories/', category ._id]" [queryParams]="{ category_name: category.name}">
+            <div class="card text-center mt-2 clickable-pointer" style="height: 100px;" [routerLink]="['/categories/', category ._id]">
                 <div class="card-body category">
                     <h5 class="card-title">{{category.name}}</h5>
                 </div>

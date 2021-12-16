@@ -23,7 +23,6 @@ const routes: Routes = [
   },
   {path: 'register', component: RegisterPageComponent},
   {path: 'products', component: ProductsComponent},
-  {path: 'products/:id', component: ProductsDetailsComponent},
   {path: 'checkout', component: CheckoutComponent},
   {path: 'admin/add-new-product', component: AddNewProductComponent},
   {path: 'admin/products', component: ManageProductsComponent},
@@ -33,7 +32,9 @@ const routes: Routes = [
     {path: ':product_id', component: ProductComponent}
   ]},
   {path: 'categories/:category_id', component: CategoryComponent},
-  {path: 'profile', component: ProfileComponent}
+  {path: 'profile', component: ProfileComponent,
+    canActivate: [AuthGuard]
+  }
 ];
 
 @NgModule({
