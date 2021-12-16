@@ -1,51 +1,35 @@
-<html>
-    <body>
-        <div class="header1">
-            <h1>Manage Products</h1>
+<div class="container">
+    <div class="row" data-testid="manage-order-row">
+        <div class="mx-auto col-md-9 mt-4">
+            <div>
+                <h3 class="d-inline p-4">Manage Products</h3>
+                <button routerLink="/admin/add-new-product" class="btn-primary btn-sm d-inline p-2">Add New
+                    Product</button>
+            </div>
+            <div class="container">
+                <div class="row" *ngFor="let product of productsList">
+                    <hr class="mt-2 mb-2">
+
+                    <div class="col-md-10">
+                        <p>
+                            {{product.name}}</p><label class="fw-bold">
+                            Price:
+                        </label>
+                        <span>
+                            {{product.discountPrice | currency:'EUR'}}
+                        </span>
+                        <span class="text-danger text-decoration-line-through">
+                            {{product.price | currency:'EUR'}}
+                        </span>
+                    </div>
+                    <div class="col-md-2">
+                        <a routerLink="/admin/products/{{product._id}}/edit" style="text-decoration: none;">Edit</a> | 
+                        <a class="text-danger" routerLink="/admin/products" style="text-decoration: none;" (click)="deleteProduct(product)">Delete</a>
+                    </div>
+                </div>
+
+            </div>
+
         </div>
-        <div class="button1">
-            <button type="submit" class="btn btn-primary">Add New Product</button>
-        </div>
-        <div class="inputtable">
-            <table class="table">
-            <tbody>
-              <tr>
-                <th scope="row">Camera</th>
-                <button class="btn btn-outline-secondary" style="margin-right: 8px; height: 40px;" type="submit">Edit</button>
-                <button class="btn btn-outline-danger" style="height: 40px;" type="submit">Delete</button>
-              </tr>
-              <br/>
-              <tr>
-                <th scope="row">Laptop</th>
-                <button class="btn btn-outline-secondary" style="margin-right: 8px;" type="submit">Edit</button>
-                <button class="btn btn-outline-danger" style="height: 40px;" type="submit">Delete</button>
-              </tr>
-              <br/>
-              <tr>
-                <th scope="row">Phone</th>
-                <button class="btn btn-outline-secondary" style="margin-right: 8px;" type="submit">Edit</button>
-                <button class="btn btn-outline-danger" style="height: 40px;" type="submit">Delete</button>
-              </tr>
-              <br/>
-              <tr>
-                <th scope="row">Phone</th>
-                <button class="btn btn-outline-secondary" style="margin-right: 8px;" type="submit">Edit</button>
-                <button class="btn btn-outline-danger" style="height: 40px;" type="submit">Delete</button>
-              </tr>
-              <br/>
-              <tr>
-                <th scope="row">Phone</th>
-                <button class="btn btn-outline-secondary" style="margin-right: 8px;" type="submit">Edit</button>
-                <button class="btn btn-outline-danger" style="height: 40px;" type="submit">Delete</button>
-              </tr>
-              <br/>
-              <tr>
-                <th scope="row">Phone</th>
-                <button class="btn btn-outline-secondary" style="margin-right: 8px;" type="submit">Edit</button>
-                <button class="btn btn-outline-danger" style="height: 40px;" type="submit">Delete</button>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-    </body>
-</html>
+    </div>
+</div>
