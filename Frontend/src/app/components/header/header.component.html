@@ -6,7 +6,16 @@
         </ul>
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
             <li><a href="#" class="nav-link px-2 text-black">Home</a></li>
-            <li><a href="#" class="nav-link px-2 text-black">Departments</a></li>
+            <div class="dropdown">
+              <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                Departments
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="#">Mobile</a></li>
+                <li><a class="dropdown-item" href="#">Computer</a></li>
+                <li><a class="dropdown-item" href="#">Book</a></li>
+              </ul>
+            </div>
             <li><a href="/products" class="nav-link px-2 text-black">Offers</a></li>
             <div *ngIf="_authService.isAuthenticated()">
               <li><a href="#" class="nav-link px-2 text-black">Profile</a></li>
