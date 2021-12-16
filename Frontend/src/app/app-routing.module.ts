@@ -12,6 +12,8 @@ import { RegisterPageComponent } from './components/register-page/register-page.
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { AddNewProductComponent } from './components/add-new-product/add-new-product.component';
 import { AuthGuard } from './guard/auth.guard';
+import { ManageProductsComponent } from './components/manage-products/manage-products.component';
+import { ManageOrderComponent } from './components/manage-order/manage-order.component';
 
 const routes: Routes = [
   {path: 'home', component: HomepageComponent },
@@ -21,6 +23,8 @@ const routes: Routes = [
   {path: 'products/:id', component: ProductsDetailsComponent},
   {path: 'checkout', component: CheckoutComponent},
   {path: 'admin/add-new-product', component: AddNewProductComponent},
+  {path: 'admin/products', component: ManageProductsComponent},
+  {path: 'admin/orders', component: ManageOrderComponent},
   {path: 'products', children:[
     {path: '', component: ProductsComponent},
     {path: ':product_id', component: ProductComponent}
