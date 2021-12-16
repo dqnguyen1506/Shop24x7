@@ -19,6 +19,10 @@ export class AuthGuard implements CanActivate {
       //if authenticated/logged in
       if (this._authService.isAuthenticated()){
         console.log("It's authenticated")
+        //cannot go to /login
+        if(state.url === "/login"){
+          this.route.navigate(['/home'])
+        }
         return true
       }
       //if admin
@@ -27,9 +31,14 @@ export class AuthGuard implements CanActivate {
           return true
         } 
       }
-      //if not authenticated go to /home
-      this.route.navigate(['/home'])
-      return false;
+      //if not authenticated for every component except login
+      if(state.url !== "/login"){
+        //redirect to /home
+        this.route.navigate(['/home'])
+        return false;
+      }
+      //if login, go to /login
+      return true
   }
   
 }

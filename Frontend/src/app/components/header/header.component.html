@@ -8,9 +8,18 @@
             <li><a href="#" class="nav-link px-2 text-black">Home</a></li>
             <li><a href="#" class="nav-link px-2 text-black">Departments</a></li>
             <li><a href="/products" class="nav-link px-2 text-black">Offers</a></li>
-            <li><a href="#" class="nav-link px-2 text-black">Profile</a></li>
-            <div>
-              <li><a href="#" class="nav-link px-2 text-black">Product</a></li>
+            <div *ngIf="_authService.isAuthenticated()">
+              <li><a href="#" class="nav-link px-2 text-black">Profile</a></li>
+            </div>
+            <!-- admin only -->
+            <div class="dropdown" *ngIf="_authService.isAdmin() && _authService.isAuthenticated()">
+              <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                Product
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="#">Add Product</a></li>
+                <li><a class="dropdown-item" href="#">Manage Product</a></li>
+              </ul>
             </div>
             
         </ul>
@@ -20,11 +29,22 @@
         </form>
 
         <div class="text-end">
+          <!-- cart -->
           <button routerLink="/home" type="button" class="btn">
             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16">
                 <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
             </svg>
-        </button>
+            
+          </button>
+          <!-- logout -->
+          <button *ngIf="_authService.isAuthenticated()" type="button" class="btn" (click)="logOut()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="red" class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z"/>
+              <path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+            </svg>
+          </button>
+          <!-- login button -->
+          <button *ngIf="!_authService.isAuthenticated()" routerLink="/login" type="button" class="btn">Login</button>
         </div>
       </div>
     </div>
