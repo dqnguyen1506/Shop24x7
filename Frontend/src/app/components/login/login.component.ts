@@ -40,19 +40,19 @@ export class LoginComponent implements OnInit {
       return;
     }
     this._userService.authenticateUser(this.userLoginForm)
-    .subscribe(data => {
-      //login failed
-      if(data.status === "failure"){
-        this.notFound = true
-      //login successful
-      }else{
+    .subscribe( (data) => {
+      //login success
+      if(data.status === "success"){
         this.notFound = false
         //set token and role from the server response
         localStorage.setItem("token", data.token)
         localStorage.setItem("email", this.userLoginForm.controls['email'].value)
         localStorage.setItem("role", data.role)
+        //go to home
         this.route.navigate(['/home'])
       }
+    }, (error) => {
+      this.notFound = true
     })
   }
 

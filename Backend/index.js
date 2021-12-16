@@ -278,3 +278,55 @@ app.get('/api/v1/categories/:CATEGORY_ID', (req, res) => {
             })
     })
 })
+
+//cart (temporary solution)
+const cart = require('./schema/cartSchema')
+
+//POST /api/v1/cart
+app.post('/api/v1/cart', (req, res) => {
+    cart.insertMany(req.body, (err, result) => {
+        if(err) 
+            res.status(500).send(err)
+        else
+            res.status(200).send({"status":"success", "message": "product added to cart successfully"})
+    })
+})
+
+//GET /api/v1/cart
+app.get('/api/v1/cart', (req, res) => {
+
+    cart.find((err, result) => {
+            if (err)
+                res.status(500).send(err)
+            else
+            res.status(200).send({"status":"success", "cart": result})
+        })
+})
+
+
+
+
+
+// Update/Edit Product
+app.patch('/api/v1/admin/products/:id', (req, res) => {
+    const productID = req.params['id']
+    
+    const name = req.body.name
+    const category = req.body.category
+    const price = req.body.price
+    const discountPrice = req.body.discountPrice
+    const image = req.body.image
+    const description = req.body.description
+    const isTopProduct = req.body.isTopProduct
+    const created_on = new Date()
+    products.findOneAndUpdate(
+        {"_id": productID},
+        {$set: {"name": name, "name": name, "category": category, "price": price, "discountPrice": discountPrice, "image": image, "description": description, "isTopProduct": isTopProduct, "created_on": created_on }},
+        {upsert: true}, 
+        (err, result) => {
+            if(err) 
+                res.status(500).send(err)
+            else
+                res.status(200).send({"status":"success", "message": "product updated successfully"})
+        })
+})

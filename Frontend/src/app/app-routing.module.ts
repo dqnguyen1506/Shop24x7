@@ -21,7 +21,7 @@ const routes: Routes = [
   {path: '', component: HomepageComponent },
   {path: 'home', component: HomepageComponent},
   {path: 'login', component: LoginPageComponent,
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuard], //can't go to login unless not authenticated
   },
   {path: 'register', component: RegisterPageComponent},
   {path: 'products', component: ProductsComponent},
@@ -32,7 +32,10 @@ const routes: Routes = [
     {path: 'products', component: ManageProductsComponent},
     {path: 'admin/orders', component: ManageOrderComponent},
     {path: 'products/:product_id/edit', component: EditProductComponent}
-  ]},
+  ], 
+    canActivate: [AuthGuard],
+    data: {role: "admin"} //only admin can access
+  },
   {path: 'products', children:[
     {path: '', component: ProductsComponent},
     {path: ':product_id', component: ProductComponent}
