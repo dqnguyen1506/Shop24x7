@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { EmailValidator, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { HttpParams } from '@angular/common/http';
 
@@ -45,5 +45,10 @@ export class UserService {
   getProfile(email: string) : Observable<any> {
     const url = this.api + "/api/v1/profile"
     return this.http.post(url, {"email": email})
+  }
+
+  editAddress(email: string, st: string, city: string, state: string, zip: string) : Observable<any> {
+    const url = this.api + "/api/v1/profile/address"
+    return this.http.patch(url, {'email': email, "address": {"streetAddress": st, "city": city, "state": state, "zipcode": zip}})
   }
 }

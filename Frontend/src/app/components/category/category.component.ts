@@ -12,6 +12,7 @@ import { ProductsService } from 'src/app/services/products/products.service';
 export class CategoryComponent implements OnInit {
 
   id : any
+  categoryName: string = ''
 
   products: any[] = []/*
     {
@@ -100,10 +101,16 @@ export class CategoryComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe(p => {
       this.id = p["category_id"]
-      console.log(this.id)
+      //this.categoryName = this.route.snapshot.queryParamMap.get('category_name') as string
 
-      this.productService.getProductsList().subscribe(pr => {
+      /*this.productService.getProductsList().subscribe(pr => {
         this.products = pr.products
+      })*/
+      this.productService.getProductsListWithCategoryID(this.id).subscribe(pr => {
+        console.log(pr)
+        this.products = pr.products
+        console.log(this.products)
+        this.categoryName = pr.category
       })
     })
   }

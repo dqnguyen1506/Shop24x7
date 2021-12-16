@@ -266,7 +266,7 @@ app.get('/api/v1/categories/:CATEGORY_ID', (req, res) => {
         if (err)
             res.status(500).send(err)
         else
-            var category_name = result[0].name.toLowerCase()
+            var category_name = result[0].name
             products.find({ "category": category_name }, (err, result) => {
                 if (err)
                     res.status(500).send(err)

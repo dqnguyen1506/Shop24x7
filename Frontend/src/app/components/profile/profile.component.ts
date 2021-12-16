@@ -94,6 +94,9 @@ export class ProfileComponent implements OnInit {
         this.profile.address.city = city.value
         this.profile.address.state = state.value
         this.profile.address.zipcode = zip.value
+        this.userService.editAddress(this.email, street.value, city.value, state.value, zip.value).subscribe(v => {
+          console.log(v)
+        })
       }
     }
   }

@@ -29,11 +29,11 @@
             <div class="row categories" data-testid="homepage-category">
                 <h4>Categories</h4>
                 <div class="col-sm-4" *ngFor="let category of categoriesList">
-                    <div class="card text-center mt-2" style="height: 100px;">
+                    <a href="/categories/{{ category._id}}"><div class="card text-center mt-2" style="height: 100px;">
                         <div class="card-body category">
                             <h5 class="card-title">{{category.name}}</h5>
                         </div>
-                    </div>
+                    </div></a>
                 </div>
             </div>
 
