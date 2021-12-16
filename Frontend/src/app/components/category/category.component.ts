@@ -5,14 +5,13 @@ import { ProductsService } from 'src/app/services/products/products.service';
 @Component({
   selector: 'app-category',
   templateUrl: './category.component.html',
-  styles: [
-  ]
+  styleUrls: ['./category.component.css']
 })
 
 export class CategoryComponent implements OnInit {
 
   id : any
-
+  categoryName:string = "";
   products: any[] = []/*
     {
       "_id": "0",
@@ -101,8 +100,8 @@ export class CategoryComponent implements OnInit {
     this.route.params.subscribe(p => {
       this.id = p["category_id"]
       console.log(this.id)
-
-      this.productService.getProductsList().subscribe(pr => {
+      this.categoryName =this.route.snapshot.queryParamMap.get('category_name') as string
+      this.productService.getProductsListWithCategoryID(this.id).subscribe(pr => {
         this.products = pr.products
       })
     })

@@ -16,8 +16,11 @@ import { ManageProductsComponent } from './components/manage-products/manage-pro
 import { ManageOrderComponent } from './components/manage-order/manage-order.component';
 
 const routes: Routes = [
-  {path: 'home', component: HomepageComponent },
-  {path: 'login', component: LoginPageComponent},
+  {path: '', component: HomepageComponent },
+  {path: 'home', component: HomepageComponent},
+  {path: 'login', component: LoginPageComponent,
+    canActivate: [AuthGuard],
+  },
   {path: 'register', component: RegisterPageComponent},
   {path: 'products', component: ProductsComponent},
   {path: 'products/:id', component: ProductsDetailsComponent},

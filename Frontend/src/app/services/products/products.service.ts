@@ -21,6 +21,11 @@ export class ProductsService {
     return this.http.get(url);
   }
 
+  getProductsListWithCategoryID(id:any): Observable<any> {
+    const url = this.apiUrl + "/api/v1/categories/"+id
+    return this.http.get(url);
+  }
+
 }
 
 
