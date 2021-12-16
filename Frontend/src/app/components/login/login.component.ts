@@ -18,10 +18,16 @@ export class LoginComponent implements OnInit {
   constructor(private fb: FormBuilder, private route: Router, private _userService: UserService) {}
 
   ngOnInit() {
+    localStorage.setItem('email', '')
     this.userLoginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
       })
+    //reset token and role upon rendering /role
+    localStorage.removeItem('token')
+    localStorage.removeItem('role')
+    console.log("token @/login: " + localStorage.getItem('token'))
+    console.log("role @/role: " + localStorage.getItem("role"))
   }
 
   // convenience getter for easy access to form fields
@@ -38,25 +44,15 @@ export class LoginComponent implements OnInit {
       if(data.status === "failure"){
         this.notFound = true
       }else{
+        this.notFound = false
+        //set token and role from the server response
+        localStorage.setItem("token", data.token)
+        localStorage.setItem("email", this.userLoginForm.controls['email'].value)
+        console.log(localStorage.getItem("token"))
+        localStorage.setItem("role", data.role)
         this.route.navigate(['/home'])
       }
     })
-
-    // this.route.navigate(['/register'])
-
-
-    // const userMatch = this.usersList.filter(user => 
-    //   user.email === this.userLoginForm.get('email')?.value &&
-    //   user.password === this.userLoginForm.get('password')?.value
-    // )
-    // if(userMatch.length === 1){
-    //   GlobalConstants.currUsername = userMatch[0].name
-    //   this.route.navigate(['/home'])
-    // }
-    // else{
-    //   this.wrongInput = true
-    // }
-
   }
 
 }

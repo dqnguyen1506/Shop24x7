@@ -1,0 +1,61 @@
+.header1{
+    position: absolute;
+    left:370px;
+    top: 70px;
+}
+
+.header2{
+    position: absolute;
+    left:570px;
+    left:370px;
+    top: 320px;
+}
+
+.firstName{
+    position: absolute;
+    left:370px;
+    top: 100px;
+}
+
+.lastName{
+    position: absolute;
+    left:370px;
+    top: 170px;
+}
+
+.Email{
+    position: absolute;
+    left:370px;
+    top: 240px;
+}
+
+.streetaddress{
+    position: absolute;
+    left:370px;
+    top: 350px;
+}
+
+.city{
+    position: absolute;
+    left:370px;
+    top: 430px;
+}
+
+.state{
+    position: absolute;
+    left:370px;
+    top: 510px;
+}
+
+.zipcode{
+    position: absolute;
+    left:370px;
+    top: 590px;
+}
+
+.button{
+    position: absolute;
+    left:760px;
+    top: 670px;
+    width: 200px;
+}

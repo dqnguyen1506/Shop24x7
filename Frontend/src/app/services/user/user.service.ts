@@ -41,4 +41,9 @@ export class UserService {
     //this is for http.get()
     // let param: any = {'email': userLoginForm.get('email')!.value, "password": userLoginForm.get('password')!.value};
   }
+
+  getProfile(email: string) : Observable<any> {
+    const url = this.api + "/api/v1/profile"
+    return this.http.post(url, {"email": email})
+  }
 }

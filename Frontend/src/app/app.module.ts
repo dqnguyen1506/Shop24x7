@@ -20,6 +20,11 @@ import { HomepageService } from './services/homepage/homepage.service';
 import { ProductsComponent } from './components/products/products/products.component';
 import { ProductsDetailsComponent } from './components/products/products-details/products-details.component';
 import { ProductsService } from './services/products/products.service';
+import { CategoryComponent } from './components/category/category.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { ProductComponent } from './components/product/product.component';
+import { AuthService } from './services/auth/auth.service';
+import { JwtHelperService, JWT_OPTIONS  } from '@auth0/angular-jwt';
 
 @NgModule({
   declarations: [
@@ -34,7 +39,10 @@ import { ProductsService } from './services/products/products.service';
     RegisterPageComponent,
     HomepageComponent,
     ProductsComponent,
-    ProductsDetailsComponent
+    ProductsDetailsComponent,
+    CategoryComponent,
+    ProfileComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +51,8 @@ import { ProductsService } from './services/products/products.service';
     FormsModule,
     HttpClientModule
   ],
-  providers: [UserService, HomepageService, ProductsService],
+  providers: [UserService, HomepageService, ProductsService, AuthService, { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
+    JwtHelperService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

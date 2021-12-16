@@ -1,0 +1,61 @@
+.header1{
+    position: absolute;
+    left:370px;
+    top: 70px;
+}
+
+.productName{
+    position: absolute;
+    left:370px;
+    top: 100px;
+    width: 500px
+}
+
+.department{
+    position: absolute;
+    left:370px;
+    top: 180px;
+    width: 500px
+}
+
+.price{
+    position: absolute;
+    left:370px;
+    top: 260px;
+    width: 500px
+}
+
+.discountprice{
+    position: absolute;
+    left:370px;
+    top: 340px;
+    width: 500px
+}
+
+.productimage{
+    position: absolute;
+    left:370px;
+    top: 420px;
+    width: 500px
+}
+
+.productdescription{
+    position: absolute;
+    left:370px;
+    top: 500px;
+    width: 500px;
+    height:200px;
+}
+
+.button1{
+    position: absolute;
+    left:370px;
+    top: 650px;
+}
+
+.button2{
+    position: absolute;
+    left:720px;
+    top: 670px;
+    width: 200px;
+}
