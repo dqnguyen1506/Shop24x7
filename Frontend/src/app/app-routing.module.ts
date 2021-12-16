@@ -15,6 +15,7 @@ import { AuthGuard } from './guard/auth.guard';
 import { ManageProductsComponent } from './components/manage-products/manage-products.component';
 import { ManageOrderComponent } from './components/manage-order/manage-order.component';
 import { EditProductComponent } from './components/edit-product/edit-product.component';
+import { CartComponent } from './components/cart/cart.component';
 
 const routes: Routes = [
   {path: '', component: HomepageComponent },
@@ -25,6 +26,7 @@ const routes: Routes = [
   {path: 'register', component: RegisterPageComponent},
   {path: 'products', component: ProductsComponent},
   {path: 'checkout', component: CheckoutComponent},
+  {path: 'cart', component: CartComponent},
   {path: 'admin', children:[
     {path: 'add-new-product', component: AddNewProductComponent},
     {path: 'products', component: ManageProductsComponent},

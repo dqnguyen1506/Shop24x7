@@ -29,6 +29,7 @@ import { ManageProductsComponent } from './components/manage-products/manage-pro
 import { ManageOrderComponent } from './components/manage-order/manage-order.component';
 import { EditProductComponent } from './components/edit-product/edit-product.component';
 import { AdminPageService } from './services/admin/admin-page.service';
+import { CartComponent } from './components/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { AdminPageService } from './services/admin/admin-page.service';
     ProductComponent,
     ManageProductsComponent,
     ManageOrderComponent,
-    EditProductComponent
+    EditProductComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,

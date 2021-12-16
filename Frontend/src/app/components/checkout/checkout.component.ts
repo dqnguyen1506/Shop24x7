@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl,FormGroup, Validators } from '@angular/forms';
+import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-checkout',
@@ -15,9 +16,24 @@ export class CheckoutComponent implements OnInit {
     zipcode: new FormControl('', Validators.required),
   })
 
-  constructor() { }
+  email : any = ''
+  profile: any = {
+    "firstName": "",
+    "lastName": "",
+    "email": ""
+  }
+
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
+    let e = localStorage.getItem('email')
+    if (e)
+      this.email = e
+    
+    this.userService.getProfile(this.email).subscribe(v=> {
+      if (v.profile[0])
+        this.profile = v.profile[0]
+    })
   }
 
   receivingUserData() {
