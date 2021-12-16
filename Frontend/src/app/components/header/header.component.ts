@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth/auth.service';
+import { HomepageService } from 'src/app/services/homepage/homepage.service';
 
 @Component({
   selector: 'app-header',
@@ -9,9 +10,17 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private route: Router, public _authService: AuthService) { }
+  categoriesList: any
 
-  ngOnInit(): void {}
+  constructor(private route: Router, public _authService: AuthService, private _homepageService : HomepageService) { }
+
+  ngOnInit(): void {
+    this._homepageService.getCategoriesList().subscribe(res => {
+      if (res.status == "success"){
+        this.categoriesList = res.categories
+      }
+    });
+  }
 
   logOut(){
     //reset token and role upon rendering /role

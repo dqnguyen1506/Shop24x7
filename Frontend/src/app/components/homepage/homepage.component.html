@@ -31,7 +31,7 @@
         <div class="col-sm-4" *ngFor="let category of categoriesList">
             <div class="card text-center mt-2 clickable-pointer" style="height: 100px;" [routerLink]="['/categories/', category ._id]">
                 <div class="card-body category">
-                    <h5 class="card-title">{{category.name}}</h5>
+                    <h5 class="card-title">{{category.name | titlecase}}</h5>
                 </div>
             </div>
         </div>
