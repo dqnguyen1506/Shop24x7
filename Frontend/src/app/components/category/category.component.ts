@@ -5,8 +5,7 @@ import { ProductsService } from 'src/app/services/products/products.service';
 @Component({
   selector: 'app-category',
   templateUrl: './category.component.html',
-  styles: [
-  ]
+  styleUrls: ['./category.component.css']
 })
 
 export class CategoryComponent implements OnInit {
@@ -102,7 +101,7 @@ export class CategoryComponent implements OnInit {
       this.id = p["category_id"]
       console.log(this.id)
 
-      this.productService.getProductsList().subscribe(pr => {
+      this.productService.getProductsListWithCategoryID(this.id).subscribe(pr => {
         this.products = pr.products
       })
     })
