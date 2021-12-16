@@ -278,3 +278,27 @@ app.get('/api/v1/categories/:CATEGORY_ID', (req, res) => {
             })
     })
 })
+
+//cart (temporary solution)
+const cart = require('./schema/cartSchema')
+
+//POST /api/v1/cart
+app.post('/api/v1/cart', (req, res) => {
+    cart.insertMany(req.body, (err, result) => {
+        if(err) 
+            res.status(500).send(err)
+        else
+            res.status(200).send({"status":"success", "message": "product added to cart successfully"})
+    })
+})
+
+//GET /api/v1/cart
+app.get('/api/v1/cart', (req, res) => {
+
+    cart.find((err, result) => {
+            if (err)
+                res.status(500).send(err)
+            else
+            res.status(200).send({"status":"success", "cart": result})
+        })
+})
