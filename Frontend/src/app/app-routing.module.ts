@@ -12,6 +12,7 @@ import { RegisterPageComponent } from './components/register-page/register-page.
 import { AuthGuard } from './guard/auth.guard';
 
 const routes: Routes = [
+  {path: '', component: HomepageComponent },
   {path: 'home', component: HomepageComponent },
   {path: 'login', component: LoginPageComponent},
   {path: 'register', component: RegisterPageComponent},
