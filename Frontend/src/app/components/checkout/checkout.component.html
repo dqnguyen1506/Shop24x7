@@ -1,31 +1,31 @@
 <html>
 <body>
   <form [formGroup]="addingUser" (ngSubmit)="receivingUserData()">
-  <div class="position-absolute top-50 start-50 translate-middle" >
-    <div class="bg-light">
+  <div>
+    <div class="header1">
         <h5 class="card-title">User Info</h5>
     </div>
     
-      <div class="mb-3">
+      <div class="mb-3 firstName">
           <label for="firstName">First Name</label>
           <input type="text" class="form-control"  style="width: 500px;" > 
       </div>
 
-      <div class="mb-3">
+      <div class="mb-3 lastName">
         <label for="lastName">Last Name</label>
         <input type="text"  class="form-control"  style="width: 500px;" > 
     </div>
 
-    <div class="mb-3">
+    <div class="mb-3 Email">
         <label for="lastName">Email</label>
         <input type="text" class="form-control"  style="width: 500px;" > 
     </div>
 
-    <div class="bg-light">
-        <h5 class="card-title">Shipping Address</h5>
+    <div>
+        <h5 class="card-title header2">Shipping Address</h5>
     </div>
 
-    <div class="mb-3">
+    <div class="mb-3 streetaddress">
         <label for="streetaddress">Street Address</label>
         <input type="text" formControlName="streetaddress" class="form-control"  style="width: 500px;" [ngClass]="{'is-invalid': addingUser.get('streetaddress')?.touched && addingUser.get('streetaddress')?.invalid}" > 
         <div class="invalid-feedback">
@@ -33,7 +33,7 @@
          </div>
     </div>
 
-    <div class="mb-3">
+    <div class="mb-3 city">
         <label for="city">City</label>
         <input type="text" formControlName="city" class="form-control"  style="width: 500px;" [ngClass]="{'is-invalid': addingUser.get('city')?.touched && addingUser.get('city')?.invalid}"> 
         <div class="invalid-feedback">
@@ -41,7 +41,7 @@
          </div>
     </div>
 
-    <div class="mb-3">
+    <div class="mb-3 state">
         <label for="state">State</label>
         <input type="text" formControlName="state" class="form-control"  style="width: 500px;" [ngClass]="{'is-invalid': addingUser.get('state')?.touched && addingUser.get('state')?.invalid}" > 
         <div class="invalid-feedback">
@@ -49,16 +49,17 @@
          </div>
     </div>
 
-    <div class="mb-3">
+    <div class="mb-3 zipcode">
         <label for="zipcode">Zip Code</label>
         <input  type="text" formControlName="zipcode" class="form-control"  style="width: 500px;" [ngClass]="{'is-invalid': addingUser.get('zipcode')?.touched && addingUser.get('zipcode')?.invalid}" > 
         <div class="invalid-feedback">
             <div>Valid Zip Code is required</div>
          </div>
     </div>
- 
-      <button [disabled]="addingUser.invalid" data-testid="checkout-button" type="submit" class="btn btn-warning" style="position:absolute; left: 390px;" >Place Order</button>
 
+    <div class="button">
+      <button [disabled]="addingUser.invalid" data-testid="checkout-button" type="submit" class="btn btn-warning">Place Order</button>
+    </div>
 </div>
 </form>
 </body>

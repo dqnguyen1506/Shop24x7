@@ -1,3 +1,8 @@
 #shop24x7Button{
     font-size: 18px;
 }
+
+.dropdown-menu > li > a:hover {
+    background-image: none;
+    background-color: #ffc404;
+}

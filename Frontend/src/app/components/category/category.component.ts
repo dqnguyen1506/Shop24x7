@@ -5,15 +5,18 @@ import { ProductsService } from 'src/app/services/products/products.service';
 @Component({
   selector: 'app-category',
   templateUrl: './category.component.html',
-  styles: [
-  ]
+  styleUrls: ['./category.component.css']
 })
 
 export class CategoryComponent implements OnInit {
 
   id : any
+<<<<<<< HEAD
   categoryName: string = ''
 
+=======
+  categoryName:string = "";
+>>>>>>> 4b23640ff561771711aad9a9993cd8b5b097c465
   products: any[] = []/*
     {
       "_id": "0",
@@ -101,9 +104,10 @@ export class CategoryComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe(p => {
       this.id = p["category_id"]
-      //this.categoryName = this.route.snapshot.queryParamMap.get('category_name') as string
-
-      /*this.productService.getProductsList().subscribe(pr => {
+      /*
+      console.log(this.id)
+      this.categoryName =this.route.snapshot.queryParamMap.get('category_name') as string
+      this.productService.getProductsListWithCategoryID(this.id).subscribe(pr => {
         this.products = pr.products
       })*/
       this.productService.getProductsListWithCategoryID(this.id).subscribe(pr => {

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl,FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-add-new-product',
@@ -9,12 +9,12 @@ import { FormControl,FormGroup, Validators } from '@angular/forms';
 export class AddNewProductComponent implements OnInit {
 
   addingProduct = new FormGroup({
-    productName: new FormControl('', Validators.required),
+    productName: new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(64)]),
     department: new FormControl('', Validators.required),
-    price: new FormControl('', Validators.required),
+    price: new FormControl('',Validators.required),
     discountprice: new FormControl('', Validators.required),
     productimage: new FormControl('', Validators.required),
-    productdescription: new FormControl('', Validators.required),
+    productdescription: new FormControl('', [Validators.required, Validators.minLength(20)]),
   })
 
   constructor() { }

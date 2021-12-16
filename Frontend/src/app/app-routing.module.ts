@@ -9,12 +9,25 @@ import { ProductsDetailsComponent } from './components/products/products-details
 import { ProductsComponent } from './components/products/products/products.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { RegisterPageComponent } from './components/register-page/register-page.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
+import { AddNewProductComponent } from './components/add-new-product/add-new-product.component';
 import { AuthGuard } from './guard/auth.guard';
+import { ManageProductsComponent } from './components/manage-products/manage-products.component';
+import { ManageOrderComponent } from './components/manage-order/manage-order.component';
 
 const routes: Routes = [
-  {path: 'home', component: HomepageComponent },
-  {path: 'login', component: LoginPageComponent},
+  {path: '', component: HomepageComponent },
+  {path: 'home', component: HomepageComponent},
+  {path: 'login', component: LoginPageComponent,
+    canActivate: [AuthGuard],
+  },
   {path: 'register', component: RegisterPageComponent},
+  {path: 'products', component: ProductsComponent},
+  {path: 'products/:id', component: ProductsDetailsComponent},
+  {path: 'checkout', component: CheckoutComponent},
+  {path: 'admin/add-new-product', component: AddNewProductComponent},
+  {path: 'admin/products', component: ManageProductsComponent},
+  {path: 'admin/orders', component: ManageOrderComponent},
   {path: 'products', children:[
     {path: '', component: ProductsComponent},
     {path: ':product_id', component: ProductComponent}

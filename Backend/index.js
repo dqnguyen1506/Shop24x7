@@ -198,7 +198,6 @@ app.get('/api/v1/homepage/products', (req, res) => {
 
 // GET /api/v1/products
 const products = require('./schema/productsSchema')
-const { response } = require('express')
 
 app.get('/api/v1/products', (req, res) => {
     products.find((err, result) => {
@@ -223,7 +222,10 @@ app.get('/api/v1/products/:PRODUCT_ID', (req, res) => {
     })
 })
 
+
+// Admin APIs
 // POST /api/v1/admin/products
+// Allows admin users to add new products.
 app.post('/api/v1/admin/products', (req, res) => {
     req.body.created_on = new Date()
     products.insertMany(req.body, (err, result) => {
@@ -236,8 +238,8 @@ app.post('/api/v1/admin/products', (req, res) => {
 
 
 // DELETE /api/v1/admin/products/:id
+// Allows admin users to delete products based on product id.
 app.delete('/api/v1/admin/products/:id', (req, res) => {
-    //db.mytable.deleteOne(data)
     var ObjectId = require('mongodb').ObjectId; 
     const productID = req.params['id']
     products.findOneAndDelete({ "_id": ObjectId(productID) },

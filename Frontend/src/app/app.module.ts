@@ -25,6 +25,8 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { ProductComponent } from './components/product/product.component';
 import { AuthService } from './services/auth/auth.service';
 import { JwtHelperService, JWT_OPTIONS  } from '@auth0/angular-jwt';
+import { ManageProductsComponent } from './components/manage-products/manage-products.component';
+import { ManageOrderComponent } from './components/manage-order/manage-order.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import { JwtHelperService, JWT_OPTIONS  } from '@auth0/angular-jwt';
     ProductsDetailsComponent,
     CategoryComponent,
     ProfileComponent,
-    ProductComponent
+    ProductComponent,
+    ManageProductsComponent,
+    ManageOrderComponent
   ],
   imports: [
     BrowserModule,
