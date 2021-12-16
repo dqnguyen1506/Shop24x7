@@ -3,17 +3,35 @@
     <div class="col-md-3">
       <div class="fw-bold m-4"><br />
         Price Range<br />
-        $5-$50<br />
-        $50-$150<br />
-        $150-$500<br />
-        $500-$1500<br />
-        $1500-$5000<br />
+        <div>
+          <input type="radio" id="5-50" name="filter" value="5-50" (click)="filterSelect('5-50')">
+          <label for="5-50">{{5 | currency:'EUR'}}-{{50 | currency:'EUR' }}</label>
+        </div>
+        
+        <div>
+          <input type="radio" id="50-150" name="filter" value="50-150" (click)="filterSelect('50-150')">
+          <label for="50-150">{{50 | currency:'EUR'}}-{{150 | currency:'EUR' }}</label>
+        </div>
+        
+        <div>
+          <input type="radio" id="150-500" name="filter" value="150-500" (click)="filterSelect('150-500')">
+          <label for="150-500">{{150 | currency:'EUR'}}-{{500 | currency:'EUR' }}</label>
+        </div>
+        <div>
+          <input type="radio" id="500-1500" name="filter" value="500-1500" (click)="filterSelect('500-1500')">
+          <label for="500-1500">{{500 | currency:'EUR'}}-{{1500 | currency:'EUR' }}</label>
+        </div>
+        
+        <div>
+          <input type="radio" id="1500-5000" name="filter" value="1500-5000" (click)="filterSelect('1500-5000')">
+          <label for="1500-5000">{{1500 | currency:'EUR'}}-{{5000 | currency:'EUR' }}</label>
+        </div>
       </div>
     </div>
     <div style="flex-basis: 70%;" class="">
-      <h3 class="fw-bold">{{ categoryName }}</h3>
+      <h3 class="fw-bold">{{ categoryName | titlecase }}</h3>
       <div class="d-flex flex-wrap pl-0 " style="text-align: center;">
-          <ng-container *ngFor="let product of products"  >
+          <ng-container *ngFor="let product of productsDisplay"  >
             <div *ngIf="product.category == categoryName && product.isTopProduct" style="flex-basis: 30%;" class="border rounded m-1">
               <a routerLink="/products/{{ product._id }}" >
                 <div class="d-flex flex-wrap justify-content-center w-100">
@@ -37,7 +55,7 @@
             </ng-container>    
             <!--<a *ngIf="product.category == id" style="flex-basis: 33.3%;" routerLink="/products/{{ product.id }}"><div class="border border-secondary rounded m-3">{{ product.name }}<img class="w-100" height="225" src="{{ product.img }}"/><div class="d-flex justify-content-around m-2 border">{{ product.price | currency }}<button (click)="addToCart()" type="button" class="btn btn-primary">Add to cart</button></div></div></a>
             -->
-            <ng-container *ngFor="let product of products"  >
+            <ng-container *ngFor="let product of productsDisplay"  >
               <div *ngIf="product.category == categoryName && !product.isTopProduct" style="flex-basis: 30%;" class="border rounded m-1">
                 <a routerLink="/products/{{ product._id }}" >
                   <div class="d-flex flex-wrap justify-content-center w-100">
