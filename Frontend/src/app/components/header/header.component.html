@@ -12,7 +12,7 @@
               </button>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                 <li>
-                  <a *ngFor="let category of categoriesList" class="dropdown-item" href="#">
+                  <a *ngFor="let category of categoriesList" class="dropdown-item" [routerLink]="['/categories/', category ._id]">
                     {{ category.name | titlecase }}</a>
                 </li>
               </ul>
