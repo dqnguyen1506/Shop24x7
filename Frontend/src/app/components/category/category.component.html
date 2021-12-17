@@ -4,7 +4,7 @@
     <div style="flex-basis: 70%;" class="">
       <h3 class="fw-bold">{{ categoryName | titlecase }}</h3>
       <div class="d-flex flex-wrap pl-0 " style="text-align: center;">
-          <ng-container *ngFor="let product of products"  >
+          <ng-container *ngFor="let product of productsDisplay"  >
             <div *ngIf="product.category == categoryName && product.isTopProduct" style="flex-basis: 30%;" class="border rounded m-1">
               <a routerLink="/products/{{ product._id }}" >
                 <div class="d-flex flex-wrap justify-content-center w-100">

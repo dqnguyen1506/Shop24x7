@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Injectable, OnInit } from '@angular/core';
 import { ProductsService } from 'src/app/services/products/products.service';
 
 @Component({
@@ -6,9 +6,11 @@ import { ProductsService } from 'src/app/services/products/products.service';
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.css']
 })
+
 export class ProductsComponent implements OnInit {
 
-  productsList: any;
+  productsList: any[] = []
+  search = ''
 
 
   constructor(private _productsService : ProductsService) { }
@@ -16,11 +18,15 @@ export class ProductsComponent implements OnInit {
   ngOnInit(): void {
     this._productsService.getProductsList().subscribe(res => {
       if (res.status == "success"){
+        var s = localStorage.getItem('search')
         this.productsList = res.products
-        console.log(this.productsList)
-
+        if (s && s !== '') {
+          this.search = s;
+        }
+          
       }
     });
   }
 
+  
 }

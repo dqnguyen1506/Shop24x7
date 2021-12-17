@@ -19,7 +19,6 @@ export class HomepageComponent implements OnInit {
     this._homepageService.getBannerList().subscribe(res => {
       if (res.status == "success"){
         this.bannerList = res.products
-        console.log(this.bannerList)
 
       }
     });
@@ -27,7 +26,6 @@ export class HomepageComponent implements OnInit {
     this._homepageService.getCategoriesList().subscribe(res => {
       if (res.status == "success"){
         this.categoriesList = res.categories
-        console.log(this.categoriesList)
 
       }
     });
@@ -35,7 +33,6 @@ export class HomepageComponent implements OnInit {
     this._homepageService.getProductsList().subscribe(res => {
       if (res.status == "success"){
         this.productsList = res.products
-        console.log(this.productsList)
 
       }
     });

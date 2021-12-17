@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Injectable, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { HomepageService } from 'src/app/services/homepage/homepage.service';
@@ -8,6 +8,7 @@ import { HomepageService } from 'src/app/services/homepage/homepage.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
+
 export class HeaderComponent implements OnInit {
 
   categoriesList: any
@@ -15,6 +16,10 @@ export class HeaderComponent implements OnInit {
   constructor(private route: Router, public _authService: AuthService, private _homepageService : HomepageService) { }
 
   ngOnInit(): void {
+    localStorage.setItem('search', '')
+    var s = this.search
+    var r = this.route
+    document.getElementById('search')?.addEventListener('keyup', function(e){ s(e, r)}, false)
     this._homepageService.getCategoriesList().subscribe(res => {
       if (res.status == "success"){
         this.categoriesList = res.categories
@@ -27,5 +32,12 @@ export class HeaderComponent implements OnInit {
     localStorage.removeItem('token')
     localStorage.removeItem('role')
     this.route.navigate(['/login'])
+  }
+
+  search(e: any, route: Router) {
+    let searchText = document.getElementById('search') as HTMLInputElement
+    localStorage.setItem('search', searchText.value)
+    if (e.key == "Enter")
+      route.navigate(['/products'])
   }
 }

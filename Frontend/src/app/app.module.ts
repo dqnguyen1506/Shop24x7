@@ -27,6 +27,7 @@ import { AuthService } from './services/auth/auth.service';
 import { JwtHelperService, JWT_OPTIONS  } from '@auth0/angular-jwt';
 import { ManageProductsComponent } from './components/manage-products/manage-products.component';
 import { ManageOrderComponent } from './components/manage-order/manage-order.component';
+import { FilterPipe } from './filter';
 import { EditProductComponent } from './components/edit-product/edit-product.component';
 import { AdminPageService } from './services/admin/admin-page.service';
 import { CartComponent } from './components/cart/cart.component';
@@ -50,6 +51,7 @@ import { CartComponent } from './components/cart/cart.component';
     ProductComponent,
     ManageProductsComponent,
     ManageOrderComponent,
+    FilterPipe,
     EditProductComponent,
     CartComponent
   ],
