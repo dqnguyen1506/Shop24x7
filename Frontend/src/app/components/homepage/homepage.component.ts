@@ -39,4 +39,14 @@ export class HomepageComponent implements OnInit {
 
   }
 
+  addToCart(product:any){
+    
+    this._homepageService.addToCart(product).subscribe(res => {
+      if (res.status == "success"){
+        alert('Added the product to the cart successfully ')
+
+      }
+  })
+}
+  
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { HomepageService } from 'src/app/services/homepage/homepage.service';
 import { ProductsService } from 'src/app/services/products/products.service';
 
 @Component({
@@ -16,7 +17,7 @@ export class CategoryComponent implements OnInit {
   productsDisplay: any[] = []
   filtered = false
   filteredId = ''
-  constructor(private route: ActivatedRoute, private productService: ProductsService) {}
+  constructor(private route: ActivatedRoute, private productService: ProductsService, private _homepageService: HomepageService) {}
 
   ngOnInit(): void {
     this.filtered = false
@@ -34,9 +35,15 @@ export class CategoryComponent implements OnInit {
     })
   }
 
-  addToCart() {
-    console.log('added')
-  }
+  addToCart(product:any){
+    
+    this._homepageService.addToCart(product).subscribe(res => {
+      if (res.status == "success"){
+        alert('Added the product to the cart successfully ')
+
+      }
+  })
+}
 
   filterSelect(filter: string){
     let radio = document.getElementById(filter) as HTMLInputElement

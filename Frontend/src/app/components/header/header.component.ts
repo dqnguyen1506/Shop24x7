@@ -16,7 +16,7 @@ export class HeaderComponent implements OnInit {
   constructor(private route: Router, public _authService: AuthService, private _homepageService : HomepageService) { }
 
   ngOnInit(): void {
-    localStorage.setItem('search', '')
+    // localStorage.setItem('search', '')
     var s = this.search
     var r = this.route
     document.getElementById('search')?.addEventListener('keyup', function(e){ s(e, r)}, false)
@@ -38,6 +38,13 @@ export class HeaderComponent implements OnInit {
     let searchText = document.getElementById('search') as HTMLInputElement
     localStorage.setItem('search', searchText.value)
     if (e.key == "Enter")
-      route.navigate(['/products'])
+    {
+      if (route.url === '/products')
+      {
+        window.location.reload()
+      }
+      else
+        route.navigate(['/products'])
+    }
   }
 }

@@ -1,4 +1,5 @@
 import { Component, Injectable, OnInit } from '@angular/core';
+import { HomepageService } from 'src/app/services/homepage/homepage.service';
 import { ProductsService } from 'src/app/services/products/products.service';
 
 @Component({
@@ -13,7 +14,7 @@ export class ProductsComponent implements OnInit {
   search = ''
 
 
-  constructor(private _productsService : ProductsService) { }
+  constructor(private _productsService : ProductsService, private _homepageService: HomepageService) { }
 
   ngOnInit(): void {
     this._productsService.getProductsList().subscribe(res => {
@@ -27,6 +28,16 @@ export class ProductsComponent implements OnInit {
       }
     });
   }
+
+  addToCart(product:any){
+    
+    this._homepageService.addToCart(product).subscribe(res => {
+      if (res.status == "success"){
+        alert('Added the product to the cart successfully ')
+
+      }
+  })
+}
 
   
 }
