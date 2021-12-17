@@ -129,6 +129,7 @@ app.delete('/api/v1/profile/image', (req, res) => {
 })
 
 //update profile image API
+//find profile and update it
 app.patch('/api/v1/profile/image', (req, res) => {
     const email = req.body.email
     const profileImage = req.body.profileImage
@@ -145,6 +146,7 @@ app.patch('/api/v1/profile/image', (req, res) => {
 })
 
 //update address API
+//user information and update their address
 app.patch('/api/v1/profile/address', (req, res) => {
     const email = req.body.email
     const address = req.body.address

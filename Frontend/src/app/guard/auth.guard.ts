@@ -26,7 +26,7 @@ export class AuthGuard implements CanActivate {
         //if admin requirement
         if(route.data['role'] === "admin"){
           //if user is not admin, re-reroute to home
-          if(localStorage.getItem("role") !== "admin"){
+          if(!this._authService.isAdmin()){
             this.route.navigate(['/home'])
             return false
           }
