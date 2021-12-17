@@ -6,13 +6,13 @@
             </div>
 
             <div class="container">
-                <div class="row">
+                <div class="row" *ngFor="let product of productInfo">
                     <hr class="mt-2 mb-2">
 
                     <div class="col-md-10">
-                        <p>product name</p>
+                        <p>{{product.name}}</p>
                         <label class="fw-bold">
-                            Price:
+                            {{product}}
                         </label>
                         <span>
                             $100
@@ -26,7 +26,7 @@
                         </span>
                     </div>
                     <div class="col-md-2">
-                        <a style="text-decoration: none;">$Price</a>
+                        <a style="text-decoration: none;">€ {{product.price}}</a>
                     </div>
                 </div>
                 <div>
