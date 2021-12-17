@@ -7,7 +7,7 @@ const tableModel = new homepageBannerSchema({
     category: {type: String},
     price: {type: Number},
     discountPrice: {type: Number},
-    description: {type: String}
+    quantity: {type: Number}
 }, {versionKey: false})
 
 module.exports = mongoose.model('cart', tableModel, 'cart')
