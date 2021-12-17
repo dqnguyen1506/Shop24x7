@@ -34,13 +34,14 @@ const users = require('./schema/userSchema')
 // USERS API
 
 //register API
+//insert user information into the database
 app.post('/api/v1/users/register', (req, res) => {
     const fName = req.body.firstName
     const lName = req.body.lastName
     const password = bcrypt.hashSync(req.body.password, 8) //encrypt password
     const email = req.body.email
-    // const profileImage = "https://villagesonmacarthur.com/wp-content/uploads/2020/12/Blank-Avatar.png"
 
+    //insert user information
     users.insertMany(
         {
             "firstName": fName, 
@@ -59,31 +60,37 @@ app.post('/api/v1/users/register', (req, res) => {
                 "zipcode": ""
             }
         }, (err, result) => {
+            //if there's an error inserting, print it
             if (err)
                 res.status(500).send(err)
             else
+                //if inserted successfully, send back success message/status
                 res.status(200).send({"status":"success", "message": "user created successfully."})
-                // res.json(result)
         })
 })
 
 //login API
+//authenticate user, checking if entered email and password exists in the db
 app.post('/api/v1/users/login', (req, res) => {
     const password = req.body.password
     const email = req.body.email
+    //find if email exists
     users.findOne({"email": email}, (err, result) => {
         if(err) {
             return res.status(500).send(err)
         }
-        //email not found
+        //email not found, return message
         if(!result){
             return res.status(401).send({"status":"failure", "message": "user does not exists"})
         }
+        //if found, compare the password (hashed)
         else{
             const validate = bcrypt.compareSync(password, result.password)
-            //password not found
+            //password not found, return message
             if(!validate) return res.status(401).send({"status":"failure", "message": "password incorrect"})
+            //get token
             var mytoken = jwt.sign({id: result._id}, config.secret, {expiresIn: 3600})
+            //if log in successfully, return token and user role (admin/user)
             return res.status(200).send({"status":"success", "message": "user logged in successfully.", "token": mytoken, "role": result.role})
         }
     })
@@ -92,11 +99,15 @@ app.post('/api/v1/users/login', (req, res) => {
 // PROFILE API
 
 //getting profile API
+//find profile in db
 app.post('/api/v1/profile', (req, res) => {
     const email = req.body.email
+    //find if email exists
     users.find( {"email": email}, (err, result) => {
+        //if theres error with exececuting find()
         if(err) 
             res.status(500).send(err)
+        //if success, return profile information
         else
             res.status(200).send({"status":"success", "profile": result})
     })
