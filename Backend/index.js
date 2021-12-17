@@ -284,11 +284,28 @@ const cart = require('./schema/cartSchema')
 
 //POST /api/v1/cart
 app.post('/api/v1/cart', (req, res) => {
-    cart.insertMany(req.body, (err, result) => {
-        if(err) 
-            res.status(500).send(err)
-        else
-            res.status(200).send({"status":"success", "message": "product added to cart successfully"})
+    
+    const productId = req.body.productId
+    cart.findOneAndUpdate(
+        {"productId": productId},
+        {$inc: {"quantity": 1}},
+        {upsert: false}, 
+        (err, result) => {
+            if(err) 
+                res.status(500).send(err)
+            else
+                //if product doesnt exist in cart
+                if(!result){
+                    cart.insertMany(req.body, (err, result) => {
+                        if(err) 
+                            res.status(500).send(err)
+                        else
+                            res.status(200).send({"status":"success", "message": "product added to cart successfully"})
+                    })
+                }
+                else{
+                    res.status(200).send({"status":"success", "message": "product found!"})
+                }
     })
 })
 
@@ -302,8 +319,6 @@ app.get('/api/v1/cart', (req, res) => {
             res.status(200).send({"status":"success", "cart": result})
         })
 })
-
-
 
 
 
