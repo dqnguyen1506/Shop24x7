@@ -1,28 +1,30 @@
 <div class="container">
   <div class="d-flex p-3 m-5">
     <div class="w-100">
-      <h3 class="fw-bold">
-        {{ product.name }}
-      </h3>
-      <img  style="object-fit: contain;" src="{{ product.image }}" data-testid="product-page-banner" height="400" class="mt-3 w-100" alt="Product Image Placeholder"/>
-      <div class="d-flex mt-3">
-        <div class="w-50">
-          <div class="mt-auto">
-            <span>
-              {{product.discountPrice | currency:'EUR'}}
-            </span>
-            <span class="text-danger text-decoration-line-through">
-              {{product.price | currency:'EUR'}}
+      <div class="row">
+        <h3 class="text-center col fw-bold">
+          {{ product.name }}
+        </h3>
+      </div>
+      <div class="row mt-4">
+        <div class="col-6 m-4" id="welcomeMessage">
+          <img style="object-fit: contain;" src="{{ product.image }}" data-testid="product-page-banner" height="400" width="100%" alt="Product Image Placeholder"/>
+        </div>
+        <div class="col-5 m-4" id="loginForm">
+          <p class="mt-4">{{ product.description }}</p>
+          <div class="row mt-auto">
+            <div class="col-4 me-3 display-6"><strong>{{product.discountPrice | currency:'EUR'}}</strong></div>
+            
+            <span class="col display-6 text-danger text-decoration-line-through">
+              <strong>{{product.price | currency:'EUR'}}</strong>
             </span>
           </div>
-          <div class="d-flex justify-content-around">
-            <button data-testid="product-page-buynow" type="button" class="btn btn-warning">Buy Now</button>
-            <button data-testid="product-page-add-to-cart" type="button" class="btn btn-primary">Add To Cart</button>
+          <div class="d-flex justify-content-around mt-4">
+            <button style="width: 40%;" data-testid="product-page-buynow" type="button" class="btn btn-warning">Buy Now</button>
+            <button style="width: 40%;" data-testid="product-page-add-to-cart" type="button" class="btn btn-primary">Add To Cart</button>
           </div>
         </div>
-        <div class="w-50">
-          <p>{{ product.description }}</p>
-        </div>
+        
       </div>
       <div class="mt-4">
         <h4 class="fw-bold mt-4">Recommended Products</h4>
@@ -50,3 +52,59 @@
     </div>
   </div>
 </div>
+
+<!-- <div class="container">
+  <div class="d-flex p-3 m-5">
+    <div class="w-100">
+      <h3 class="fw-bold">
+        {{ product.name }}
+      </h3>
+      <div class="d-flex justify-content-center">
+        <div class="w-25"></div>
+        <div class="" id="welcomeMessage">
+          <img  style="object-fit: contain;" src="{{ product.image }}" data-testid="product-page-banner" height="400" alt="Product Image Placeholder"/>
+        </div>
+        <div class="w-25"></div>
+        <div class="mt-5" id="loginForm">
+          <p>{{ product.description }}</p>
+          <div class="mt-auto">
+            <span>
+              {{product.discountPrice | currency:'EUR'}}
+            </span>
+            <span class="text-danger text-decoration-line-through">
+              {{product.price | currency:'EUR'}}
+            </span>
+          </div>
+          <div class="d-flex justify-content-around">
+            <button data-testid="product-page-buynow" type="button" class="btn btn-warning">Buy Now</button>
+            <button data-testid="product-page-add-to-cart" type="button" class="btn btn-primary">Add To Cart</button>
+          </div>
+        </div>
+        
+      </div>
+      <div class="mt-4">
+        <h4 class="fw-bold mt-4">Recommended Products</h4>
+      </div>
+      <div class="d-flex flex-wrap pl-0" style="text-align: center;">
+        <ng-container *ngFor="let p of products"  >
+          <div *ngIf="p.category == product.category && id != p._id" style="flex-basis: 33.3%;">
+            <div class="border border-secondary rounded m-1">
+              <a routerLink="/products/{{ p._id }}">
+              <img class="m-3" style="width: 100%; height: 200px; object-fit: contain;" src="{{ p.image }}"/>
+              </a>
+              <strong>{{product.name}}</strong>
+              <div class="mb-3">
+                <span>
+                  {{p.discountPrice | currency:'EUR'}}
+                </span>
+                <span class="text-danger text-decoration-line-through">
+                  {{p.price | currency:'EUR'}}
+                </span>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div> -->
