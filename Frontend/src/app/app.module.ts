@@ -27,13 +27,10 @@ import { AuthService } from './services/auth/auth.service';
 import { JwtHelperService, JWT_OPTIONS  } from '@auth0/angular-jwt';
 import { ManageProductsComponent } from './components/manage-products/manage-products.component';
 import { ManageOrderComponent } from './components/manage-order/manage-order.component';
-<<<<<<< HEAD
 import { FilterPipe } from './filter';
-=======
 import { EditProductComponent } from './components/edit-product/edit-product.component';
 import { AdminPageService } from './services/admin/admin-page.service';
 import { CartComponent } from './components/cart/cart.component';
->>>>>>> a893720dbf9888bb8a498298ce3b57343436c0e4
 
 @NgModule({
   declarations: [
@@ -54,7 +51,7 @@ import { CartComponent } from './components/cart/cart.component';
     ProductComponent,
     ManageProductsComponent,
     ManageOrderComponent,
-    FilterPipe
+    FilterPipe,
     EditProductComponent,
     CartComponent
   ],
