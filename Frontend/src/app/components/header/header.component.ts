@@ -34,15 +34,18 @@ export class HeaderComponent implements OnInit {
     this.route.navigate(['/login'])
   }
 
+  //User is searching for something
   search(e: any, route: Router) {
     let searchText = document.getElementById('search') as HTMLInputElement
     localStorage.setItem('search', searchText.value)
     if (e.key == "Enter")
     {
+      //If we are already on the products page, reload to show searched products
       if (route.url === '/products')
       {
         window.location.reload()
       }
+      //Else navigate to the products page
       else
         route.navigate(['/products'])
     }

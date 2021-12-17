@@ -10,17 +10,19 @@ export class ProductsService {
 
   constructor(private http: HttpClient) { }
 
-  
+  //Get all products
   getProductsList(): Observable<any> {
     const url = this.apiUrl + "/api/v1/products"
     return this.http.get(url);
   }
 
+  //Get a specific product
   getProduct(id:any): Observable<any> {
     const url = this.apiUrl + "/api/v1/products/"+id
     return this.http.get(url);
   }
 
+  //Get products in a certain category
   getProductsListWithCategoryID(id:any): Observable<any> {
     const url = this.apiUrl + "/api/v1/categories/"+id
     return this.http.get(url);
@@ -29,5 +31,5 @@ export class ProductsService {
 
 
 
-  
-  
+
+

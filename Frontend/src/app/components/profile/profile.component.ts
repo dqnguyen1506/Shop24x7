@@ -32,16 +32,18 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    //If the user is logged in, get their email and corresponding profile information
     let e = localStorage.getItem('email')
     if (e)
       this.email = e
-    
+
     this.userService.getProfile(this.email).subscribe(v=> {
       if (v.profile[0])
         this.profile = v.profile[0]
     })
   }
 
+  //Delete the image the user has uploaded and return to default
   deleteImage() {
     let pic = document.getElementById('profile-img')
     if (pic)
@@ -53,6 +55,7 @@ export class ProfileComponent implements OnInit {
     }
   }
 
+  //Upload a new local image and display on page
   uploadImage() {
     let pic = document.getElementById('profile-img') as HTMLImageElement
     let upload = document.getElementById('img') as HTMLInputElement
@@ -65,6 +68,7 @@ export class ProfileComponent implements OnInit {
     }
   }
 
+  //Edit the address
   editAddress() {
     let addressText = document.getElementById('address')
     let button = document.getElementById('editAddressButton')
@@ -75,6 +79,7 @@ export class ProfileComponent implements OnInit {
     let zip = document.getElementById('zip') as HTMLInputElement
     if (button && addressText && edit && street && city && state && zip)
     {
+      //If we click the edit button, make the address edit information visible
       if (button.innerHTML == 'Edit')
       {
         button.innerHTML = 'Save'
@@ -85,6 +90,7 @@ export class ProfileComponent implements OnInit {
         state.value = this.profile.address.state
         zip.value = this.profile.address.zipcode
       }
+      //Trying to save the address, call API to update profile
       else
       {
         button.innerHTML = 'Edit'

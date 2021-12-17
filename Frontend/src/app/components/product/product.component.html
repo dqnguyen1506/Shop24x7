@@ -17,7 +17,7 @@
           <hr>
           <div class="row mt-auto">
             <div class="col-12 display-6"><strong>{{product.discountPrice | currency:'EUR'}}</strong></div>
-            
+
             <span class="col-12 display-6 text-danger text-decoration-line-through">
               <small><strong>{{product.price | currency:'EUR'}}</strong></small>
             </span>
@@ -27,7 +27,7 @@
             <button style="width: 40%;" data-testid="product-page-add-to-cart" type="button" class="btn btn-primary ms-4"  (click)="addToCart(product)">Add To Cart</button>
           </div>
         </div>
-        
+
       </div>
       <div class="mt-4">
         <h4 class="fw-bold mt-4">Recommended Products</h4>
@@ -55,59 +55,3 @@
     </div>
   </div>
 </div>
-
-<!-- <div class="container">
-  <div class="d-flex p-3 m-5">
-    <div class="w-100">
-      <h3 class="fw-bold">
-        {{ product.name }}
-      </h3>
-      <div class="d-flex justify-content-center">
-        <div class="w-25"></div>
-        <div class="" id="welcomeMessage">
-          <img  style="object-fit: contain;" src="{{ product.image }}" data-testid="product-page-banner" height="400" alt="Product Image Placeholder"/>
-        </div>
-        <div class="w-25"></div>
-        <div class="mt-5" id="loginForm">
-          <p>{{ product.description }}</p>
-          <div class="mt-auto">
-            <span>
-              {{product.discountPrice | currency:'EUR'}}
-            </span>
-            <span class="text-danger text-decoration-line-through">
-              {{product.price | currency:'EUR'}}
-            </span>
-          </div>
-          <div class="d-flex justify-content-around">
-            <button data-testid="product-page-buynow" type="button" class="btn btn-warning">Buy Now</button>
-            <button data-testid="product-page-add-to-cart" type="button" class="btn btn-primary">Add To Cart</button>
-          </div>
-        </div>
-        
-      </div>
-      <div class="mt-4">
-        <h4 class="fw-bold mt-4">Recommended Products</h4>
-      </div>
-      <div class="d-flex flex-wrap pl-0" style="text-align: center;">
-        <ng-container *ngFor="let p of products"  >
-          <div *ngIf="p.category == product.category && id != p._id" style="flex-basis: 33.3%;">
-            <div class="border border-secondary rounded m-1">
-              <a routerLink="/products/{{ p._id }}">
-              <img class="m-3" style="width: 100%; height: 200px; object-fit: contain;" src="{{ p.image }}"/>
-              </a>
-              <strong>{{product.name}}</strong>
-              <div class="mb-3">
-                <span>
-                  {{p.discountPrice | currency:'EUR'}}
-                </span>
-                <span class="text-danger text-decoration-line-through">
-                  {{p.price | currency:'EUR'}}
-                </span>
-              </div>
-            </div>
-          </div>
-        </ng-container>
-      </div>
-    </div>
-  </div>
-</div> -->
