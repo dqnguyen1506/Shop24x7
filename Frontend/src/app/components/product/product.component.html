@@ -7,21 +7,24 @@
         </h3>
       </div>
       <div class="row mt-4">
-        <div class="col-6 m-4" id="welcomeMessage">
+        <div class="col-6 m-4">
           <img style="object-fit: contain;" src="{{ product.image }}" data-testid="product-page-banner" height="400" width="100%" alt="Product Image Placeholder"/>
         </div>
-        <div class="col-5 m-4" id="loginForm">
+        <div class="col m-4">
+          <strong>Description</strong>
+          <hr>
           <p class="mt-4">{{ product.description }}</p>
+          <hr>
           <div class="row mt-auto">
-            <div class="col-4 me-3 display-6"><strong>{{product.discountPrice | currency:'EUR'}}</strong></div>
+            <div class="col-12 display-6"><strong>{{product.discountPrice | currency:'EUR'}}</strong></div>
             
-            <span class="col display-6 text-danger text-decoration-line-through">
+            <span class="col-12 display-6 text-danger text-decoration-line-through">
               <strong>{{product.price | currency:'EUR'}}</strong>
             </span>
           </div>
-          <div class="d-flex justify-content-around mt-4">
+          <div class="d-flex justify-content-start mt-4">
             <button style="width: 40%;" data-testid="product-page-buynow" type="button" class="btn btn-warning">Buy Now</button>
-            <button style="width: 40%;" data-testid="product-page-add-to-cart" type="button" class="btn btn-primary">Add To Cart</button>
+            <button style="width: 40%;" data-testid="product-page-add-to-cart" type="button" class="btn btn-primary ms-4">Add To Cart</button>
           </div>
         </div>
         
