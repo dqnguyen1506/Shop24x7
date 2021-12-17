@@ -304,8 +304,16 @@ app.get('/api/v1/cart', (req, res) => {
 })
 
 
-
-
+//Delete product
+app.delete('/api/v1/cart/:productId', (req, res) => {
+    const productId = req.params['productId']
+    cart.findOneAndDelete(productId, (err, result) => {
+        if (err)
+            res.status(500).send(err)
+        else
+            res.status(200).send({"status":"success", "message": "cart item deleted successfully"})
+    })
+})
 
 // Update/Edit Product
 app.patch('/api/v1/admin/products/:id', (req, res) => {

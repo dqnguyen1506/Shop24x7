@@ -12,30 +12,33 @@
                     <div class="col-md-10">
                         <p>{{product.name}}</p>
                         <label class="fw-bold">
-                            {{product}}
+                            Price
                         </label>
                         <span>
-                            $100
+                            € {{product.price}}
                         </span>
                         <br/>
                         <label class="fw-bold">
                             Discount
                         </label>
                         <span>
-                           $20
+                            € {{product.discountPrice}}
                         </span>
                     </div>
                     <div class="col-md-2">
-                        <a style="text-decoration: none;">€ {{product.price}}</a>
+                        <a style="text-decoration: none;">€ {{product.discountPrice}}</a>
+                    </div>
+                    <div class="col-md-2">
+                        <button class="text-danger removebutton" style="text-decoration: none;" (click)="deleteCart(product.productId)">Remove</button>
                     </div>
                 </div>
                 <div>
                     <hr/>
                 </div>
-                <div>
-                    <a style="text-decoration: none;">$TOTAL</a>
+                <div class="buttonAndTotal">
+                    <a data-testid="cart-grand-total" style="text-decoration: none;">Grand Total € 1,540.00 </a>
                     <br/>
-                    <button class="btn btn-warning">Checkout</button>
+                    <button data-testid="“cart-button" class="btn btn-warning">Checkout</button>
                 </div>
             </div>
 

@@ -17,6 +17,12 @@ export class CartService {
   getcart() : Observable<any> {
     return this.http.get(this.api)
   }
+
+  deleteCart(id: number) : Observable<any> {
+    let param: any = {'productId': id};
+    console.log(param)
+    return this.http.delete(this.api+'/'+id, {params : param})
+  }
 }
 
 
