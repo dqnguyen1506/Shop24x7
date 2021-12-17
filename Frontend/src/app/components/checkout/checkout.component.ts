@@ -9,6 +9,7 @@ import { UserService } from 'src/app/services/user/user.service';
 })
 export class CheckoutComponent implements OnInit {
 
+  //Form validation for the checkout form
   addingUser = new FormGroup({
     streetaddress: new FormControl('', Validators.required),
     city: new FormControl('', Validators.required),
@@ -16,6 +17,7 @@ export class CheckoutComponent implements OnInit {
     zipcode: new FormControl('', Validators.required),
   })
 
+  //Inforamtion catching for checkout form 
   email : any = ''
   profile: any = {
     "firstName": "",

@@ -10,6 +10,7 @@ import { AdminPageService } from 'src/app/services/admin/admin-page.service';
 })
 export class AddNewProductComponent implements OnInit {
 
+  //Form validation 
   addingProduct = new FormGroup({
     name: new FormControl('', Validators.required),
     category: new FormControl('', Validators.required),
@@ -24,7 +25,8 @@ export class AddNewProductComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  
+
+  //admin can add a new product using the form to the product list
   receivingProductData(product:any) {
     console.log(product)
 

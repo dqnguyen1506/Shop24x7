@@ -19,7 +19,7 @@ export class CartComponent implements OnInit {
       console.log(this.productInfo)
     })
   }
-
+  //Delete method used to remove product fromt the cart
   deleteCart(productId:any){
     console.log(productId);
     this._cartService.deleteCart(productId).subscribe(res => {

@@ -334,6 +334,7 @@ app.delete("/api/v1/cart", (req, res) => {
 })
 
 //GET /api/v1/cart
+//Get list of products that have been added to cart
 app.get('/api/v1/cart', (req, res) => {
 
     cart.find((err, result) => {
@@ -346,6 +347,7 @@ app.get('/api/v1/cart', (req, res) => {
 
 
 //Delete product
+//Remove Product from cart using it's id
 app.delete('/api/v1/cart/:productId', (req, res) => {
     const productId = req.params['productId']
     cart.findOneAndDelete(productId, (err, result) => {
