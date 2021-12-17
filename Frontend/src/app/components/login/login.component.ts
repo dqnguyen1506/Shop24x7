@@ -23,11 +23,6 @@ export class LoginComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
       })
-    // //reset token and role upon rendering /role
-    // localStorage.removeItem('token')
-    // localStorage.removeItem('role')
-    // console.log("token @/login: " + localStorage.getItem('token'))
-    // console.log("role @/role: " + localStorage.getItem("role"))
   }
 
   // convenience getter for easy access to form fields
