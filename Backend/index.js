@@ -165,9 +165,10 @@ app.patch('/api/v1/profile/address', (req, res) => {
 
 
 
-// Homepage APIs
+// ------------Homepage APIs---------------
 
 // GET /api/v1/homepage/banner
+// Fetches the list of banner items(with a limit 3), to display on the homepage
 const homepageBanner = require('./schema/homepageBannerSchema')
 
 app.get('/api/v1/homepage/banner', (req, res) => {
@@ -182,6 +183,8 @@ app.get('/api/v1/homepage/banner', (req, res) => {
 
 
 // GET /api/v1/homepage/categories
+// Fetches the list of category items(with a limit 3), to display on the homepage
+
 const homepageCategories = require('./schema/homepageCategoriesSchema')
 
 app.get('/api/v1/homepage/categories', (req, res) => {
@@ -196,6 +199,7 @@ app.get('/api/v1/homepage/categories', (req, res) => {
 
 
 // GET /api/v1/homepage/products
+// Fetches the list of products(with a limit 8), to display on the homepage
 const homepageProducts = require('./schema/homepageProductsSchema')
 
 app.get('/api/v1/homepage/products', (req, res) => {
@@ -208,8 +212,10 @@ app.get('/api/v1/homepage/products', (req, res) => {
     })
 })
 
+// ------------Product APIs---------------
 
 // GET /api/v1/products
+// Fetches the list of products (gets all the products from database), to display on the offers page
 const products = require('./schema/productsSchema')
 
 app.get('/api/v1/products', (req, res) => {
@@ -223,6 +229,7 @@ app.get('/api/v1/products', (req, res) => {
 
 
 // GET /api/v1/products/:PRODUCT_ID
+// Fetches the product details (using the product_id), to display on the produt page
 app.get('/api/v1/products/:PRODUCT_ID', (req, res) => {
     var ObjectId = require('mongodb').ObjectId; 
     const productID = req.params['PRODUCT_ID']
@@ -236,7 +243,7 @@ app.get('/api/v1/products/:PRODUCT_ID', (req, res) => {
 })
 
 
-// Admin APIs
+// ------------Admin APIs---------------
 // POST /api/v1/admin/products
 // Allows admin users to add new products.
 app.post('/api/v1/admin/products', (req, res) => {
@@ -251,7 +258,7 @@ app.post('/api/v1/admin/products', (req, res) => {
 
 
 // DELETE /api/v1/admin/products/:id
-// Allows admin users to delete products based on product id.
+// Allows admin to delete products based on product id.
 app.delete('/api/v1/admin/products/:id', (req, res) => {
     var ObjectId = require('mongodb').ObjectId; 
     const productID = req.params['id']
@@ -265,12 +272,37 @@ app.delete('/api/v1/admin/products/:id', (req, res) => {
 })
 
 // PATCH /api/v1/admin/products/:id
-// ---------------pending--------------------------
+// Allows admin to Update/Edit Product using the product_id and the product details
+app.patch('/api/v1/admin/products/:id', (req, res) => {
+    const productID = req.params['id']
+    
+    const name = req.body.name
+    const category = req.body.category
+    const price = req.body.price
+    const discountPrice = req.body.discountPrice
+    const image = req.body.image
+    const description = req.body.description
+    const isTopProduct = req.body.isTopProduct
+    const created_on = new Date()
+    products.findOneAndUpdate(
+        {"_id": productID},
+        {$set: {"name": name, "name": name, "category": category, "price": price, "discountPrice": discountPrice, "image": image, "description": description, "isTopProduct": isTopProduct, "created_on": created_on }},
+        {upsert: true}, 
+        (err, result) => {
+            if(err) 
+                res.status(500).send(err)
+            else
+                res.status(200).send({"status":"success", "message": "product updated successfully"})
+        })
+})
 
 
+
+// ------------Category APIs---------------
 
 // Category Listing
 // GET /api/v1/categories/:CATEGORY_ID
+// Fetches the list of products which belongs to a category (using the category_id), to display on the category page
 
 app.get('/api/v1/categories/:CATEGORY_ID', (req, res) => {
     var ObjectId = require('mongodb').ObjectId; 
@@ -358,26 +390,4 @@ app.delete('/api/v1/cart/:productId', (req, res) => {
     })
 })
 
-// Update/Edit Product
-app.patch('/api/v1/admin/products/:id', (req, res) => {
-    const productID = req.params['id']
-    
-    const name = req.body.name
-    const category = req.body.category
-    const price = req.body.price
-    const discountPrice = req.body.discountPrice
-    const image = req.body.image
-    const description = req.body.description
-    const isTopProduct = req.body.isTopProduct
-    const created_on = new Date()
-    products.findOneAndUpdate(
-        {"_id": productID},
-        {$set: {"name": name, "name": name, "category": category, "price": price, "discountPrice": discountPrice, "image": image, "description": description, "isTopProduct": isTopProduct, "created_on": created_on }},
-        {upsert: true}, 
-        (err, result) => {
-            if(err) 
-                res.status(500).send(err)
-            else
-                res.status(200).send({"status":"success", "message": "product updated successfully"})
-        })
-})
+xx
