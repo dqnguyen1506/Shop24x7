@@ -42,7 +42,7 @@ const routes: Routes = [
   ]},
   {path: 'categories/:category_id', component: CategoryComponent},
   {path: 'profile', component: ProfileComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard] //authenticated to access
   }
 ];
 
