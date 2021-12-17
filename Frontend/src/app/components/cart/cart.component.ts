@@ -19,4 +19,16 @@ export class CartComponent implements OnInit {
       console.log(this.productInfo)
     })
   }
+
+  deleteCart(productId:any){
+    console.log(productId);
+    this._cartService.deleteCart(productId).subscribe(res => {
+      if (res.status == "success"){
+        // this.productsList = res.products
+        alert('SUCCESS!! :-)\n\n The following product has been deleted successfully :\n\n');
+        this.ngOnInit()
+
+      }
+    });
+  }
 }
