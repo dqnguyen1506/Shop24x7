@@ -22,6 +22,7 @@ export class CategoryComponent implements OnInit {
   ngOnInit(): void {
     this.filtered = false
     this.filteredId = ''
+    //Get the category id and display the corresponding products
     this.route.params.subscribe(p => {
       this.id = p["category_id"]
       this.productService.getProductsListWithCategoryID(this.id).subscribe(pr => {
@@ -36,7 +37,7 @@ export class CategoryComponent implements OnInit {
   }
 
   addToCart(product:any){
-    
+
     this._homepageService.addToCart(product).subscribe(res => {
       if (res.status == "success"){
         alert('Added the product to the cart successfully ')
@@ -45,16 +46,21 @@ export class CategoryComponent implements OnInit {
   })
 }
 
+  //User has selected a radio button
   filterSelect(filter: string){
     let radio = document.getElementById(filter) as HTMLInputElement
+    //Are we trying to filter the same button?  If so, uncheck and remove filter
     if (this.filtered && filter === this.filteredId) {
       radio.checked = false
       this.filtered = false
       this.filteredId = ''
       this.productsDisplay = this.products
-    } else {
+    }
+    //Adding a filter
+    else {
       this.filtered = true
       this.filteredId = filter
+      //Which filter?
       switch (filter) {
         case '5-50':
         this.productsDisplay = this.products.filter(p=>p.discountPrice >= 5.00 && p.discountPrice <= 50.00)

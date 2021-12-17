@@ -11,7 +11,7 @@ export class UserService {
 
   api!: string
 
-  constructor(private http: HttpClient) { 
+  constructor(private http: HttpClient) {
     this.api = "http://localhost:8080"
   }
 
@@ -19,13 +19,14 @@ export class UserService {
 //     return this.http.get(this.url)
 //   }
 
+  //Register user
   registerUser(userRegistrationForm: FormGroup): Observable<any>{
       const url = this.api + "/api/v1/users/register"
       // console.log(userRegistrationForm.get('lName')!.value)
       return this.http.post(url, {
         "firstName": userRegistrationForm.get('fName')!.value,
-        "lastName": userRegistrationForm.get('lName')!.value, 
-        "password": userRegistrationForm.get('password')!.value, 
+        "lastName": userRegistrationForm.get('lName')!.value,
+        "password": userRegistrationForm.get('password')!.value,
         "email": userRegistrationForm.get('email')!.value,
     })
   }
@@ -34,7 +35,7 @@ export class UserService {
   authenticateUser(userLoginForm: FormGroup): Observable<any>{
     const url = this.api + "/api/v1/users/login"
     return this.http.post(url, {
-      "password": userLoginForm.get('password')!.value, 
+      "password": userLoginForm.get('password')!.value,
       "email": userLoginForm.get('email')!.value,
   })
 
@@ -42,11 +43,13 @@ export class UserService {
     // let param: any = {'email': userLoginForm.get('email')!.value, "password": userLoginForm.get('password')!.value};
   }
 
+  //Get profile information based on email
   getProfile(email: string) : Observable<any> {
     const url = this.api + "/api/v1/profile"
     return this.http.post(url, {"email": email})
   }
 
+  //Edit the address of the user
   editAddress(email: string, st: string, city: string, state: string, zip: string) : Observable<any> {
     const url = this.api + "/api/v1/profile/address"
     return this.http.patch(url, {'email': email, "address": {"streetAddress": st, "city": city, "state": state, "zipcode": zip}})
