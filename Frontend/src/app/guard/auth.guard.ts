@@ -23,13 +23,15 @@ export class AuthGuard implements CanActivate {
         if(state.url === "/login"){
           this.route.navigate(['/home'])
         }
+        //if admin requirement
+        if(route.data['role'] === "admin"){
+          //if user is not admin, re-reroute to home
+          if(localStorage.getItem("role") !== "admin"){
+            this.route.navigate(['/home'])
+            return false
+          }
+        }
         return true
-      }
-      //if admin
-      else if (this._authService.isAuthenticated() && route.data['role'] === "admin"){
-        if(localStorage.getItem("role") === "admin"){
-          return true
-        } 
       }
       //if not authenticated for every component except login
       if(state.url !== "/login"){

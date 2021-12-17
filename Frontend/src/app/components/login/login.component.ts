@@ -48,6 +48,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem("token", data.token)
         localStorage.setItem("email", this.userLoginForm.controls['email'].value)
         localStorage.setItem("role", data.role)
+        alert(localStorage.getItem("role"))
         //go to home
         this.route.navigate(['/home'])
       }
