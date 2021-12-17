@@ -11,9 +11,10 @@
                 Departments
               </button>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="#">Mobile</a></li>
-                <li><a class="dropdown-item" href="#">Computer</a></li>
-                <li><a class="dropdown-item" href="#">Book</a></li>
+                <li>
+                  <a *ngFor="let category of categoriesList" class="dropdown-item" [routerLink]="['/categories/', category ._id]">
+                    {{ category.name | titlecase }}</a>
+                </li>
               </ul>
             </div>
             <li><a href="/products" class="nav-link px-2 text-black">Offers</a></li>
@@ -26,8 +27,8 @@
                 Product
               </button>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="#">Add Product</a></li>
-                <li><a class="dropdown-item" href="#">Manage Product</a></li>
+                <li><a class="dropdown-item" routerLink="/admin/add-new-product">Add Product</a></li>
+                <li><a class="dropdown-item" routerLink="/admin/products">Manage Product</a></li>
               </ul>
             </div>
             

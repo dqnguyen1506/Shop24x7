@@ -8,17 +8,17 @@
     
       <div class="mb-3 firstName">
           <label for="firstName">First Name</label>
-          <input type="text" class="form-control"  style="width: 500px;" > 
+          <input type="text" class="form-control"  style="width: 500px;" value="{{ profile.firstName }}" readonly>
       </div>
 
       <div class="mb-3 lastName">
         <label for="lastName">Last Name</label>
-        <input type="text"  class="form-control"  style="width: 500px;" > 
+        <input type="text"  class="form-control"  style="width: 500px;" value="{{ profile.lastName }}" readonly > 
     </div>
 
     <div class="mb-3 Email">
         <label for="lastName">Email</label>
-        <input type="text" class="form-control"  style="width: 500px;" > 
+        <input type="text" class="form-control"  style="width: 500px;" value="{{ profile.email}}" readonly > 
     </div>
 
     <div>

@@ -1,6 +1,7 @@
 import { Component, Injectable, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth/auth.service';
+import { HomepageService } from 'src/app/services/homepage/homepage.service';
 
 @Component({
   selector: 'app-header',
@@ -10,13 +11,20 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 
 export class HeaderComponent implements OnInit {
 
-  constructor(private route: Router, public _authService: AuthService) { }
+  categoriesList: any
+
+  constructor(private route: Router, public _authService: AuthService, private _homepageService : HomepageService) { }
 
   ngOnInit(): void {
     localStorage.setItem('search', '')
     var s = this.search
     var r = this.route
     document.getElementById('search')?.addEventListener('keyup', function(e){ s(e, r)}, false)
+    this._homepageService.getCategoriesList().subscribe(res => {
+      if (res.status == "success"){
+        this.categoriesList = res.categories
+      }
+    });
   }
 
   logOut(){
