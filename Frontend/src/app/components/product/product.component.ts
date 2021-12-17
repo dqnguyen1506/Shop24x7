@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
+import { HomepageService } from 'src/app/services/homepage/homepage.service';
 import { ProductsService } from 'src/app/services/products/products.service';
 
 
@@ -107,7 +108,7 @@ export class ProductComponent implements OnInit {
       "createdOn": ""
   }
 
-  constructor(private route: ActivatedRoute, private productService: ProductsService) { }
+  constructor(private route: ActivatedRoute, private productService: ProductsService, private _homepageService: HomepageService) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(p => {
@@ -121,5 +122,16 @@ export class ProductComponent implements OnInit {
       this.products = ps.products
     })
   }
+
+  addToCart(product:any){
+    
+    this._homepageService.addToCart(product).subscribe(res => {
+      if (res.status == "success"){
+        alert('Added the product to the cart successfully ')
+
+      }
+  })
+}
+ 
 
 }
