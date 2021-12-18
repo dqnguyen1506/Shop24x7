@@ -389,5 +389,3 @@ app.delete('/api/v1/cart/:productId', (req, res) => {
             res.status(200).send({"status":"success", "message": "cart item deleted successfully"})
     })
 })
-
-xx
