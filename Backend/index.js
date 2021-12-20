@@ -27,7 +27,9 @@ app.use(
     })
 )
 
-app.listen(8080)
+app.listen(8080, () => {
+    console.log("Server running on localhost:8080")
+})
 
 const users = require('./schema/userSchema')
 
