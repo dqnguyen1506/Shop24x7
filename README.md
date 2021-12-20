@@ -52,11 +52,11 @@ MongoDb, Express.js, Angular.js, Node.js, Npm
 5. `ng serve` to start Angular project
 
 ## Previews:
-![login page (v3)](![image](https://user-images.githubusercontent.com/44854519/146817024-b01abd73-c776-44be-b042-95f40f3d507b.png))
-![homepage v4](https://user-images.githubusercontent.com/44854519/128401837-cb72e235-de39-43de-acf3-8bce4694f084.png)
-![giphy](https://user-images.githubusercontent.com/44854519/125171100-3579fc00-e167-11eb-83f3-cb42ab29d202.gif)
-![homepage animation](https://user-images.githubusercontent.com/44854519/125171106-40349100-e167-11eb-9552-85ed6aff4366.gif)
-![upload animation](https://user-images.githubusercontent.com/44854519/125171111-4a568f80-e167-11eb-99db-e0a743ae7d29.gif)
+
+![Login page](https://user-images.githubusercontent.com/44854519/146817481-391c33c3-b161-42c0-bff9-64dc61b9a445.png)
+![Homepage](https://user-images.githubusercontent.com/44854519/146817516-0bcdffd4-34bf-40c6-b250-089f4e3fb412.png)
+![product details](https://user-images.githubusercontent.com/44854519/146817522-9cb56fa4-18ed-4729-8f78-57b6d54850e4.png)
+![search](https://user-images.githubusercontent.com/44854519/146817525-9e648693-d64f-46ae-9517-fcd463007553.png)
 
 ## Versions:
     1.0.0: Features listed added and implemented
