@@ -59,7 +59,7 @@ MongoDb, Express.js, Angular.js, Node.js, Npm
 ![search](https://user-images.githubusercontent.com/44854519/146817525-9e648693-d64f-46ae-9517-fcd463007553.png)
 
 ## Versions:
-    1.0.0: Features listed added and implemented
+    1.0.0: Listed features added and implemented
     
 ## Future Features to Be Added
 1. Checkout (API/UI)
