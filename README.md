@@ -35,9 +35,9 @@ Shop24x7 is a e-commerce web application run on MEAN Stack (MongoDb, Express.js,
 
 MongoDb, Express.js, Angular.js, Node.js, Npm
 
-### Setup 
+## Setup 
 
-## Backend
+### Backend
 1. First clone the given repo and locate repo in local folder directory
 2. `cd /Shop24x7/Backend`
 3. `npm install` to install all dependencies used in project
@@ -46,7 +46,7 @@ MongoDb, Express.js, Angular.js, Node.js, Npm
 6. `nodemon index.js` to start up the server (@port 8080) to start handling API calls
 7. (optional) to test admin account's features, change "role" variable in `users` collection to "admin"
 
-## Frontend
+### Frontend
 2. `cd /Shop24x7/Frontend`
 3. `npm install` to install all dependencies used in project
 5. `ng serve` to start Angular project
