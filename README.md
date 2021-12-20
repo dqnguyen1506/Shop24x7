@@ -21,7 +21,7 @@ Shop24x7 is a e-commerce web application run on MEAN Stack (MongoDb, Express.js,
 * Cart
   * adding items into cart for checkout 
    
-Deployed website: [In Progress]
+## Deployed website: [In Progress]
 
 ## Developer Guide
 
