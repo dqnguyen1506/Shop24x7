@@ -52,6 +52,12 @@ MongoDb, Express.js, Angular.js, Node.js, Npm
 5. `ng serve` to start Angular project
 
 ## Previews:
+<p float="left">
+  <img src="https://user-images.githubusercontent.com/44854519/146817481-391c33c3-b161-42c0-bff9-64dc61b9a445.png" width="100" />
+  <img src="https://user-images.githubusercontent.com/44854519/146817481-391c33c3-b161-42c0-bff9-64dc61b9a445.png" width="100" /> 
+  <img src="/img3.png" width="100" />
+</p>
+
 
 ![Login page](https://user-images.githubusercontent.com/44854519/146817481-391c33c3-b161-42c0-bff9-64dc61b9a445.png)![Homepage](https://user-images.githubusercontent.com/44854519/146817516-0bcdffd4-34bf-40c6-b250-089f4e3fb412.png)
 ![product details](https://user-images.githubusercontent.com/44854519/146817522-9cb56fa4-18ed-4729-8f78-57b6d54850e4.png)
