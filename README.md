@@ -52,14 +52,8 @@ MongoDb, Express.js, Angular.js, Node.js, Npm
 5. `ng serve` to start Angular project
 
 ## Previews:
-<<<<<<< HEAD
-<img src="https://user-images.githubusercontent.com/44854519/146817481-391c33c3-b161-42c0-bff9-64dc61b9a445.png" height="250" width="425"/> <img src="https://user-images.githubusercontent.com/44854519/146817516-0bcdffd4-34bf-40c6-b250-089f4e3fb412.png" height="500" width="425"/> 
-<img src="https://user-images.githubusercontent.com/44854519/146817522-9cb56fa4-18ed-4729-8f78-57b6d54850e4.png" height="500" width="425"/> <img src="https://user-images.githubusercontent.com/44854519/146817525-9e648693-d64f-46ae-9517-fcd463007553.png" height="500" width="425"/> 
-=======
-
 ![Login page](https://user-images.githubusercontent.com/44854519/146817481-391c33c3-b161-42c0-bff9-64dc61b9a445.png)
 ![Homepage](https://user-images.githubusercontent.com/44854519/146817516-0bcdffd4-34bf-40c6-b250-089f4e3fb412.png)
->>>>>>> parent of ca9d936 (Update README.md)
 ![product details](https://user-images.githubusercontent.com/44854519/146817522-9cb56fa4-18ed-4729-8f78-57b6d54850e4.png)
 ![search](https://user-images.githubusercontent.com/44854519/146817525-9e648693-d64f-46ae-9517-fcd463007553.png)
 
