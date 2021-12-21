@@ -53,8 +53,8 @@ MongoDb, Express.js, Angular.js, Node.js, Npm
 
 ## Previews:
 <p float="left">
-  <img src="https://user-images.githubusercontent.com/44854519/146817481-391c33c3-b161-42c0-bff9-64dc61b9a445.png" width="100" />
-  <img src="https://user-images.githubusercontent.com/44854519/146817481-391c33c3-b161-42c0-bff9-64dc61b9a445.png" width="100" /> 
+  <img src="https://user-images.githubusercontent.com/44854519/146817481-391c33c3-b161-42c0-bff9-64dc61b9a445.png"/>
+  <img src="https://user-images.githubusercontent.com/44854519/146817481-391c33c3-b161-42c0-bff9-64dc61b9a445.png"/> 
   <img src="/img3.png" width="100" />
 </p>
 
